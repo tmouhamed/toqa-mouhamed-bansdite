@@ -1,0 +1,97 @@
+@import "./mixins.scss";
+
+/****** to reduce the repetition of the same hex color ******/
+$white-text: #ffffff;
+$black-text: #323232;
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*********
+
+  HEADER SECTION 
+
+********/
+.header {
+  /****** general mixin for flex-column-display ******/
+  @include flex-display-column;
+  background-color: $black-text;
+  color: $white-text;
+  
+  &__logo {
+    width: 100%;
+    padding: 16px;
+  }
+  &__nav {
+    width: 100%;
+  }
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  &__nav-list-item {
+    width: 50%;
+    padding-bottom: 10px;
+    &:first-child {
+      border-bottom: 4px solid $white-text;
+    }
+  }
+}
+
+/*********
+
+  MAIN-CONTAINER SECTION 
+
+********/
+.main {
+    
+  &__hero {
+  /****** general mixin for flex-column-display ******/
+    @include flex-display-row;
+    height: 55vh;
+    color: $white-text;
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url(../assets/Images/hero-photo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 16px;
+    font-size: 24px;
+  }
+  &__hero-title {
+    margin: 0;
+    line-height: 2.9rem;
+  }
+  &__content {
+    @include flex-display-column;
+    margin: 0 auto;
+    padding: 0 16px;
+    color: $black-text;
+
+    &-first-title {
+      font-size: 24px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 0;
+      margin-top: 32px;
+
+    }
+    &-image {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      margin: 24px 0;
+    }
+  }
+}
