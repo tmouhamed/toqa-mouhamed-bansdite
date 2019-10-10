@@ -1,5 +1,9 @@
 @import "./mixins.scss";
 
+/****** to reduce the repetition of the same hex color ******/
+$white-text: #ffffff; 
+$black-text: #000000; 
+
 html, body {
     box-sizing: border-box;
     margin: 0 auto;
@@ -10,7 +14,7 @@ html, body {
   .header {
       display: flex;
       background-color: #323232;
-      color: #ffffff;
+      color: $white-text;
 
       width: 100%;
       height: auto;
@@ -21,21 +25,14 @@ html, body {
         align-items: center;
         justify-content: center;
       }
-
       &__logo {
-        width: 100%;
-        
         @include mobile-size {
+          width: 80%;
           padding: 16px;
         }
       }
-
       &__nav {
         width: 100%;
-
-        @include mobile-size {
-        margin-bottom: 16px;
-        }
       }
 
       &__nav-list {
@@ -50,9 +47,40 @@ html, body {
       }
 
       &__nav-list-item {
-
+        
         @include mobile-size {
           width: 50%;
+          &:first-child {
+            border-bottom: 6px solid $white-text;
+            padding-bottom: 16px;
+          }
         }
       }
+  }
+  .main {
+    &__hero {
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      color: $white-text;
+
+      background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),url(../assets/Images/hero-photo.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      /********** for mobile -version only *********/
+
+      @include mobile-size {
+        font-size: 24px;
+        height: 55vh;
+      }
+    }
+
+    &__hero-title {
+      @include mobile-size {
+        margin: 0 16px;
+        line-height: 2.9rem;
+      }
+    }
   }
