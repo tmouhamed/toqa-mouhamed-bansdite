@@ -27,3 +27,15 @@
     align-items: center;
     padding: $standard-padding;
   }
+  @mixin header-text-style {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  @mixin subheader-text-style {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  @mixin pargraph-text-style{
+    font-size: 13px;
+    line-height: 18px;
+  }

@@ -74,22 +74,20 @@ body {
     padding: $standard-padding;
   }
   &__hero-title {
+    @include header-text-style;
     margin: 0;
     width: 70%;
-    line-height: 32px;
-    font-size: 24px;
   }
   &__content {
     @include flex-display-column;
+    @include pargraph-text-style;
     margin: 0 auto;
     color: $black-text;
-    font-size: 13px;
-    line-height: 18px;
 
     &-first-title {
-      font-size: 24px;
-      margin: 32px 0 24px 0;
-      padding: $standard-padding;
+      @include header-text-style;
+      padding: 32px 16px 24px 16px;
+      margin: 0;
     }
     &-image {
       @include standard-image-size;
@@ -111,20 +109,53 @@ body {
       margin: 40px 0;
     }
     &-text-title {
-      font-size: 14px;
-      line-height: 22px;
+      @include subheader-text-style;
       margin: 0 0 24px 0;
     }
-
     &-gallery {
-      background-color: #FAFAFA;
+      background-color: #fafafa;
     }
-
     &-gallery-image {
       @include standard-image-size;
       margin-bottom: 16px;
-
-      
     }
+  }
+}
+
+/*********
+
+  FOOTER SECTION 
+
+********/
+.footer {
+  @include pargraph-text-style;
+  background-color: $black-text;
+  color: $white-text;
+  padding: $standard-padding;
+  margin-bottom: 0;
+
+  &__contant-title {
+    @include header-text-style;
+    padding: 32px 0 24px 0;
+    margin: 0;
+  }
+  &__contant-list{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin: 0 10px;
+  }
+  &:last-child{
+    padding-bottom: 20px;
+  }
+  &__info {
+    margin-bottom: 25px;
+    @include pargraph-text-style;
+  }
+  &__info-name {
+    font-weight: bold;
   }
 }
