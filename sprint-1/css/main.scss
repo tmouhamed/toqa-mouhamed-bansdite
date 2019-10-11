@@ -1,5 +1,9 @@
+$standard-padding: 0 16px;
 @import "./mixins.scss";
-
+@font-face {
+  font-family: "Avenir Next";
+  src: url(../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Regular.otf);
+}
 /****** to reduce the repetition of the same hex color ******/
 $white-text: #ffffff;
 $black-text: #323232;
@@ -7,7 +11,8 @@ $black-text: #323232;
 html,
 body {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
+  font-family: "Avenir Next";
 }
 *,
 *:before,
@@ -25,7 +30,7 @@ body {
   @include flex-display-column;
   background-color: $black-text;
   color: $white-text;
-  
+
   &__logo {
     width: 100%;
     padding: 16px;
@@ -55,43 +60,71 @@ body {
 
 ********/
 .main {
-    
   &__hero {
-  /****** general mixin for flex-column-display ******/
+    /****** general mixin for flex-column-display ******/
     @include flex-display-row;
-    height: 55vh;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50vh;
     color: $white-text;
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url(../assets/Images/hero-photo.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 0 16px;
-    font-size: 24px;
+    padding: $standard-padding;
   }
   &__hero-title {
     margin: 0;
-    line-height: 2.9rem;
+    width: 70%;
+    line-height: 32px;
+    font-size: 24px;
   }
   &__content {
     @include flex-display-column;
     margin: 0 auto;
-    padding: 0 16px;
     color: $black-text;
+    font-size: 13px;
+    line-height: 18px;
 
     &-first-title {
       font-size: 24px;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin: 0;
-      margin-top: 32px;
-
+      margin: 32px 0 24px 0;
+      padding: $standard-padding;
     }
     &-image {
-      width: 100%;
-      height: auto;
-      justify-content: center;
-      align-items: center;
-      margin: 24px 0;
+      @include standard-image-size;
+      padding: $standard-padding;
+    }
+    &-article {
+      @include flex-display-column;
+      padding: $standard-padding;
+      margin-top: 24px;
+    }
+    &-article-qoute {
+      font-weight: bold;
+      margin-bottom: 32px;
+    }
+    &-qoute-span {
+      font-weight: bold;
+    }
+    &-text {
+      margin: 40px 0;
+    }
+    &-text-title {
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0 0 24px 0;
+    }
+
+    &-gallery {
+      background-color: #FAFAFA;
+    }
+
+    &-gallery-image {
+      @include standard-image-size;
+      margin-bottom: 16px;
+
+      
     }
   }
 }
