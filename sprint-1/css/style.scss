@@ -1,4 +1,5 @@
-$standard-padding: 0 16px;
+$mobile-padding: 0 16px;
+$tablet-padding: 0 24px;
 @import "./mixins.scss";
 @font-face {
   font-family: "Avenir Next";
@@ -30,13 +31,13 @@ body {
   @include flex-display-column;
   background-color: $black-text;
   color: $white-text;
-
-  &__logo {
-    width: 100%;
-    padding: 16px;
+  @include tablet-size {
+    /* to make the header in horizontal */
+    @include flex-display-row;
+    padding: $tablet-padding;
   }
-  &__nav {
-    width: 100%;
+  &__logo {
+    padding: 16px;
   }
   &__nav-list {
     display: flex;
@@ -47,7 +48,16 @@ body {
   }
   &__nav-list-item {
     width: 50%;
+    padding: $mobile-padding; /** to looks like the mokeup 16px padding */
     padding-bottom: 10px;
+    &:first-child {
+      border-bottom: 4px solid $white-text;
+    }
+    @include tablet-size {
+      width: 100%;
+      margin: 0 30px;
+      padding: 30px 5px;
+    }
     &:first-child {
       border-bottom: 4px solid $white-text;
     }
@@ -71,11 +81,15 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: $standard-padding;
+    padding: $mobile-padding;
+
+    @include tablet-size {
+      height: 100vh;
+      padding: $tablet-padding;
+    }
   }
   &__hero-title {
     @include header-text-style;
-    margin: 0;
     width: 70%;
   }
   &__content {
@@ -91,11 +105,11 @@ body {
     }
     &-image {
       @include standard-image-size;
-      padding: $standard-padding;
+      padding: $mobile-padding;
     }
     &-article {
       @include flex-display-column;
-      padding: $standard-padding;
+      padding: $mobile-padding;
       margin-top: 24px;
     }
     &-article-qoute {
@@ -131,7 +145,7 @@ body {
   @include pargraph-text-style;
   background-color: $black-text;
   color: $white-text;
-  padding: $standard-padding;
+  padding: $mobile-padding;
   margin-bottom: 0;
 
   &__contant-title {
@@ -139,18 +153,16 @@ body {
     padding: 32px 0 24px 0;
     margin: 0;
   }
-  &__contant-list{
+  &__contant-list {
     list-style-type: none;
     display: flex;
     margin: 0;
     padding: 0;
   }
-  li {
+  &__contant-item {
     margin: 0 10px;
   }
-  &:last-child{
-    padding-bottom: 20px;
-  }
+
   &__info {
     margin-bottom: 25px;
     @include pargraph-text-style;
@@ -158,4 +170,8 @@ body {
   &__info-name {
     font-weight: bold;
   }
+}
+
+footer:last-child {
+  padding-bottom: 20px;
 }

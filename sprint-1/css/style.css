@@ -39,13 +39,24 @@ body {
   color: #ffffff;
 }
 
-.header__logo {
-  width: 100%;
-  padding: 16px;
+@media (min-width: 768px) and (max-width: 1440px) {
+  .header {
+    /* to make the header in horizontal */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100vw;
+    height: auto;
+    padding: 0 24px;
+  }
 }
 
-.header__nav {
-  width: 100%;
+.header__logo {
+  padding: 16px;
 }
 
 .header__nav-list {
@@ -60,7 +71,21 @@ body {
 
 .header__nav-list-item {
   width: 50%;
+  padding: 0 16px;
+  /** to looks like the mokeup 16px padding */
   padding-bottom: 10px;
+}
+
+.header__nav-list-item:first-child {
+  border-bottom: 4px solid #ffffff;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .header__nav-list-item {
+    width: 100%;
+    margin: 0 30px;
+    padding: 30px 5px;
+  }
 }
 
 .header__nav-list-item:first-child {
@@ -99,10 +124,16 @@ body {
   padding: 0 16px;
 }
 
+@media (min-width: 768px) and (max-width: 1440px) {
+  .main__hero {
+    height: 100vh;
+    padding: 0 24px;
+  }
+}
+
 .main__hero-title {
   font-size: 24px;
   line-height: 32px;
-  margin: 0;
   width: 70%;
 }
 
@@ -222,12 +253,8 @@ body {
   padding: 0;
 }
 
-.footer li {
+.footer__contant-item {
   margin: 0 10px;
-}
-
-.footer:last-child {
-  padding-bottom: 20px;
 }
 
 .footer__info {
@@ -238,5 +265,9 @@ body {
 
 .footer__info-name {
   font-weight: bold;
+}
+
+footer:last-child {
+  padding-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */
