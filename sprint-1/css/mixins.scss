@@ -1,3 +1,22 @@
+@font-face {
+  font-family: Avenir Next-regular;
+  src: url("../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Regular.otf");
+}
+
+@font-face {
+  font-family: Avenir Next-bold;
+  src: url("../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Bold.otf");
+}
+
+@font-face {
+  font-family: Avenir Next-bolder;
+  src: url("../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf");
+}
+$mobile-padding: 0 16px;
+$tablet-padding: 0 24px;
+$regular-font: Avenir Next-regular;
+$bold-font: Avenir Next-bold;
+$demibold-font: Avenir Next-bolder;
 @mixin tablet-size {
     @media (min-width: 768px) and (max-width: 1440px){
         @content;
@@ -30,24 +49,35 @@
   @mixin header-mobile-style {
     font-size: 24px;
     line-height: 32px;
+    font-family: $bold-font;
   }
   @mixin subheader-mobile-style {
     font-size: 14px;
     line-height: 22px;
+    font-family: $demibold-font;
   }
   @mixin pargraph-mobile-style{
     font-size: 13px;
     line-height: 18px;
+    font-family: $regular-font;
   }
-  @mixin header-tablet-style {
+  @mixin hero-tablet-style {
     font-size: 60px;
     line-height: 68px;
+    font-family: $bold-font;
+  }
+  @mixin header__tablet-style {
+    font-size: 36px;
+    line-height: 44px;
+    font-family: $bold-font;
   }
   @mixin subheader-tablet-style {
     font-size: 16px;
     line-height: 24px;
+    font-family: $demibold-font;
   }
   @mixin pargraph-tablet-style{
     font-size: 14px;
-    line-height: 2px;
+    line-height: 22px;
+    font-family: $regular-font;
   }

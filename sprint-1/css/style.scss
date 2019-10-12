@@ -1,10 +1,5 @@
-$mobile-padding: 0 16px;
-$tablet-padding: 0 24px;
 @import "./mixins.scss";
-@font-face {
-  font-family: "Avenir Next";
-  src: url(../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Regular.otf);
-}
+
 /****** to reduce the repetition of the same hex color ******/
 $white-text: #ffffff;
 $black-text: #323232;
@@ -13,7 +8,6 @@ html,
 body {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Avenir Next";
 }
 *,
 *:before,
@@ -89,23 +83,37 @@ body {
     }
   }
   &__hero-title {
-    @include header-text-style;
+    @include header-mobile-style;
     width: 70%;
+    @include tablet-size {
+      @include hero-tablet-style;
+    }
   }
   &__content {
     @include flex-display-column;
-    @include pargraph-text-style;
+    @include pargraph-mobile-style;
     margin: 0 auto;
     color: $black-text;
 
     &-first-title {
-      @include header-text-style;
+      @include header-mobile-style;
       padding: 32px 16px 24px 16px;
       margin: 0;
     }
     &-image {
-      @include standard-image-size;
+      @include standard-image-size; /***** look at the mokeup images file ***/
       padding: $mobile-padding;
+      max-width: 288px;
+      max-height: 145px;
+
+      @include tablet-size {
+        max-width: 720px;
+        max-height: 365px;
+      }
+      @include desktop-size {
+        max-width: 896px;
+        max-height: 450px;
+      }
     }
     &-article {
       @include flex-display-column;
@@ -113,17 +121,18 @@ body {
       margin-top: 24px;
     }
     &-article-qoute {
-      font-weight: bold;
       margin-bottom: 32px;
+      @include subheader-mobile-style;
     }
-    &-qoute-span {
-      font-weight: bold;
+    &-article-span {
+      @include subheader-mobile-style;
     }
     &-text {
       margin: 40px 0;
+      @include pargraph-mobile-style;
     }
     &-text-title {
-      @include subheader-text-style;
+      @include subheader-mobile-style;
       margin: 0 0 24px 0;
     }
     &-gallery {
@@ -142,14 +151,15 @@ body {
 
 ********/
 .footer {
-  @include pargraph-text-style;
+  @include pargraph-mobile-style;
   background-color: $black-text;
   color: $white-text;
   padding: $mobile-padding;
   margin-bottom: 0;
 
+  /****** social media icons ******/
   &__contant-title {
-    @include header-text-style;
+    @include header-mobile-style;
     padding: 32px 0 24px 0;
     margin: 0;
   }
@@ -162,16 +172,25 @@ body {
   &__contant-item {
     margin: 0 10px;
   }
-
-  &__info {
+  /****** contacts information ******/
+  &__info-list {
+    list-style: none;
+    padding: 0;
     margin-bottom: 25px;
-    @include pargraph-text-style;
+    @include pargraph-mobile-style;
   }
-  &__info-name {
-    font-weight: bold;
+  /*** to add margin after every two lines ***/
+  &__list-item:nth-child(1),
+  &__list-item:nth-child(2) {
+    @include subheader-mobile-style;
   }
-}
-
-footer:last-child {
-  padding-bottom: 20px;
+  &__list-item:nth-child(2),
+  &__list-item:nth-child(4) {
+    margin-bottom: 15px;
+  }
+  /*** to fill the entire section with black background ***/
+  &__info-list:last-child {
+    padding-bottom: 20px;
+    margin: 0;
+  }
 }
