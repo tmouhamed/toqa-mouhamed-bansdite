@@ -30,13 +30,13 @@ $demibold-font: Avenir Next-bolder;
 @mixin flex-display-column {
     display: flex;
     flex-direction: column;  
-    width: 100vw;
+    width: 100%;
     height: auto;
   }
   @mixin flex-display-row {
     display: flex;
     flex-direction: row;  
-    width: 100vw;
+    width: 100%;
     height: auto;
   }
   @mixin standard-image-size {
@@ -44,7 +44,6 @@ $demibold-font: Avenir Next-bolder;
     height: auto;
     justify-content: center;
     align-items: center;
-    padding: $mobile-padding;
   }
   @mixin header-mobile-style {
     font-size: 24px;
@@ -66,9 +65,14 @@ $demibold-font: Avenir Next-bolder;
     line-height: 68px;
     font-family: $bold-font;
   }
-  @mixin header__tablet-style {
+  @mixin header-tablet-style {
     font-size: 36px;
     line-height: 44px;
+    font-family: $bold-font;
+  }
+  @mixin header2-tablet-style {
+    font-size: 24px;
+    line-height: 32px;
     font-family: $bold-font;
   }
   @mixin subheader-tablet-style {
