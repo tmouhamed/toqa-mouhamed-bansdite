@@ -12,8 +12,9 @@
   font-family: Avenir Next-bolder;
   src: url("../assets/Fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf");
 }
-$mobile-padding: 0 16px;
-$tablet-padding: 0 24px;
+$mobile-margin: 0 16px;
+$tablet-margin: 0 24px;
+$desktop-margin: 0 180px;
 $regular-font: Avenir Next-regular;
 $bold-font: Avenir Next-bold;
 $demibold-font: Avenir Next-bolder;
@@ -30,13 +31,11 @@ $demibold-font: Avenir Next-bolder;
 @mixin flex-display-column {
     display: flex;
     flex-direction: column;  
-    width: 100%;
     height: auto;
   }
   @mixin flex-display-row {
     display: flex;
     flex-direction: row;  
-    width: 100%;
     height: auto;
   }
   @mixin standard-image-size {
