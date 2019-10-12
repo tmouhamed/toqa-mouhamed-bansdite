@@ -116,10 +116,13 @@ body {
       padding: 0;
       @include tablet-size {
         @include header-tablet-style;
-        margin: 45px 24px 30px 24px;
+        margin: $tablet-margin;
+        margin-top: 45px;
+        padding: 0;
       }
       @include desktop-size {
-        margin: 24px 180px;      /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+        margin: $desktop-margin;
+        margin-top: 48px;
       }
     }
     &-image {
@@ -127,22 +130,25 @@ body {
       margin: 24px 0;
       max-width: 288px;
       @include tablet-size {
-        margin-bottom: 32px;
+        margin: 32px 0;
         max-width: 720px;
       }
       @include desktop-size {
-        margin-bottom: 32px;
         max-width: 900px;
+        margin: 48px 0;
       }
     }
     &-article {
       @include flex-display-column;
       margin: $mobile-margin;
+      margin-bottom: 40px;
       @include tablet-size {
         margin: $tablet-margin;
       }
       @include desktop-size {
-        margin: 24px 180px;  /***** to overlap the left&right margin ******/
+        margin: $desktop-margin; /***** to overlap the left&right margin ******/
+        margin-bottom: 48px;
+        padding: 0 95px;
       }
     }
     &-article-qoute {
@@ -150,19 +156,25 @@ body {
       @include subheader-mobile-style;
       @include tablet-size {
         @include header2-tablet-style;
+        margin-bottom: 40px;
       }
     }
     &-article-span {
+      margin: 32px 0 40px 0;
       @include subheader-mobile-style;
       @include tablet-size {
         @include subheader-tablet-style;
+        margin: 0;
+        margin-top: 40px;
       }
     }
     &-box {
-      margin: 40px 0;
       @include pargraph-mobile-style;
       @include tablet-size {
         @include pargraph-tablet-style;
+      }
+      @include desktop-size {
+        margin: 0;
       }
     }
     &-box-title {
@@ -170,22 +182,32 @@ body {
       margin: 0 0 24px 0;
       @include tablet-size {
         @include header2-tablet-style;
+        margin-bottom: 15px;
+      }
+      @include desktop-size {
+        margin: 56px 0 32px 0;
       }
     }
     &-box-text {
       @include tablet-size {
         @include flex-display-row;
-        flex-wrap: wrap;
       }
     }
     &-text {
       @include tablet-size {
         width: 50%;
       }
+      @include desktop-size {
+        width: 55%;
+        margin: 0;
+      }
     }
     &-text:first-child {
       @include tablet-size {
-        padding-right: 25px;
+        margin-right: 24px;
+      }
+      @include desktop-size {
+        margin-right: 40px;
       }
     }
     &-gallery {
@@ -195,21 +217,21 @@ body {
         padding: $tablet-margin;
       }
       @include desktop-size {
-        margin: 24px 0;
-        padding: $desktop-margin;  /***** to overlap the left&right margin ******/
+        padding: $desktop-margin; /***** to overlap the left&right margin ******/
       }
     }
     &-gallery-title {
       @include header-mobile-style;
       margin: 0;
-      padding: 0; 
-      margin-top: 32px;
+      padding: 0;
+      margin: 32px 0 24px 0;
       @include tablet-size {
         @include header-tablet-style;
-        margin: 45px 24px 30px 24px;
+        margin: 32px 0 0 12px;
       }
       @include desktop-size {
-        margin: 24px 180px;      /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+        margin: 48px 0 64px 0; /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+        padding-left: 15px;
       }
     }
     &-gallery-list {
@@ -220,12 +242,20 @@ body {
         justify-content: space-evenly;
         align-items: center;
       }
+      @include desktop-size {
+        margin: 0;
+        margin-bottom: 40px;
+      }
     }
     &-gallery-image {
       @include standard-image-size;
       margin-bottom: 16px;
       @include tablet-size {
-        width: 33%;
+        max-width: 224px;
+        padding: 0 12px;
+      }
+      @include desktop-size {
+        max-width: 344px;
         padding: 0 12px;
       }
     }
@@ -241,11 +271,17 @@ body {
   @include pargraph-mobile-style;
   background-color: $black-text;
   color: $white-text;
+  padding: $mobile-margin;
+
+  @include tablet-size {
+    padding: $tablet-margin;
+  }
+  @include desktop-size {
+    padding: $desktop-margin;
+  }
   /****** social media icons ******/
   &__contact {
-    margin: $mobile-margin;
     @include tablet-size {
-      margin: $tablet-margin;
       justify-content: space-between;
       @include flex-display-row;
     }
@@ -253,6 +289,8 @@ body {
   &__contact-div {
     @include tablet-size {
       @include flex-display-row;
+      justify-content: center;
+      align-items: center;
     }
   }
   &__contact-title {
@@ -261,36 +299,35 @@ body {
     margin: 0;
     @include tablet-size {
       @include header-tablet-style;
-      padding-top: 35px;
-      padding-right: 45px;
+      padding: 0;
     }
   }
   &__contact-icon-list {
     @include tablet-size {
-      padding-top: 20px;
+      padding: 0;
     }
+    
   }
   &__contact-icon {
     margin: 15px;
     margin-left: 5px;
     @include tablet-size {
-      margin: 25px;
-      margin-left: 15px;
+      margin: 0;
+      margin-left: 32px;
     }
   }
   &__logo {
-    display: none;
+    display: nonepadding-top;
     @include tablet-size {
       display: inline;
-      padding: 45px 0;
+      margin: 48px 18px;
     }
   }
   /****** contacts information ******/
 
   &__info {
-    margin: $mobile-margin;
+    
     @include tablet-size {
-      margin: $tablet-margin;
       justify-content: space-between;
       @include flex-display-row;
     }
@@ -316,11 +353,9 @@ body {
   }
   /*** to fill the entire section with black background ***/
   &__copy-rights {
-    margin: $mobile-margin;
     padding-bottom: 20px;
     width: 65%;
     @include tablet-size {
-      margin: $tablet-margin;
       margin-top: 24px;
     }
   }

@@ -210,14 +210,16 @@ body {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
-    margin: 45px 24px 30px 24px;
+    margin: 0 24px;
+    margin-top: 45px;
+    padding: 0;
   }
 }
 
 @media (min-width: 1440px) {
   .main__content-first-title {
-    margin: 24px 180px;
-    /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+    margin: 0 180px;
+    margin-top: 48px;
   }
 }
 
@@ -237,15 +239,15 @@ body {
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .main__content-image {
-    margin-bottom: 32px;
+    margin: 32px 0;
     max-width: 720px;
   }
 }
 
 @media (min-width: 1440px) {
   .main__content-image {
-    margin-bottom: 32px;
     max-width: 900px;
+    margin: 48px 0;
   }
 }
 
@@ -259,6 +261,7 @@ body {
           flex-direction: column;
   height: auto;
   margin: 0 16px;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
@@ -269,8 +272,10 @@ body {
 
 @media (min-width: 1440px) {
   .main__content-article {
-    margin: 24px 180px;
+    margin: 0 180px;
     /***** to overlap the left&right margin ******/
+    margin-bottom: 48px;
+    padding: 0 95px;
   }
 }
 
@@ -286,10 +291,12 @@ body {
     font-size: 24px;
     line-height: 32px;
     font-family: Avenir Next-bold;
+    margin-bottom: 40px;
   }
 }
 
 .main__content-article-span {
+  margin: 32px 0 40px 0;
   font-size: 14px;
   line-height: 22px;
   font-family: Avenir Next-bolder;
@@ -300,11 +307,12 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-family: Avenir Next-bolder;
+    margin: 0;
+    margin-top: 40px;
   }
 }
 
 .main__content-box {
-  margin: 40px 0;
   font-size: 13px;
   line-height: 18px;
   font-family: Avenir Next-regular;
@@ -315,6 +323,12 @@ body {
     font-size: 14px;
     line-height: 22px;
     font-family: Avenir Next-regular;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__content-box {
+    margin: 0;
   }
 }
 
@@ -330,6 +344,13 @@ body {
     font-size: 24px;
     line-height: 32px;
     font-family: Avenir Next-bold;
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__content-box-title {
+    margin: 56px 0 32px 0;
   }
 }
 
@@ -343,8 +364,6 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     height: auto;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
 }
 
@@ -354,9 +373,22 @@ body {
   }
 }
 
+@media (min-width: 1440px) {
+  .main__content-text {
+    width: 55%;
+    margin: 0;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1440px) {
   .main__content-text:first-child {
-    padding-right: 25px;
+    margin-right: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__content-text:first-child {
+    margin-right: 40px;
   }
 }
 
@@ -373,7 +405,6 @@ body {
 
 @media (min-width: 1440px) {
   .main__content-gallery {
-    margin: 24px 0;
     padding: 0 180px;
     /***** to overlap the left&right margin ******/
   }
@@ -385,7 +416,7 @@ body {
   font-family: Avenir Next-bold;
   margin: 0;
   padding: 0;
-  margin-top: 32px;
+  margin: 32px 0 24px 0;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
@@ -393,14 +424,15 @@ body {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
-    margin: 45px 24px 30px 24px;
+    margin: 32px 0 0 12px;
   }
 }
 
 @media (min-width: 1440px) {
   .main__content-gallery-title {
-    margin: 24px 180px;
+    margin: 48px 0 64px 0;
     /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+    padding-left: 15px;
   }
 }
 
@@ -429,6 +461,13 @@ body {
   }
 }
 
+@media (min-width: 1440px) {
+  .main__content-gallery-list {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+}
+
 .main__content-gallery-image {
   width: 100%;
   height: auto;
@@ -443,7 +482,14 @@ body {
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .main__content-gallery-image {
-    width: 33%;
+    max-width: 224px;
+    padding: 0 12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__content-gallery-image {
+    max-width: 344px;
     padding: 0 12px;
   }
 }
@@ -459,19 +505,27 @@ body {
   font-family: Avenir Next-regular;
   background-color: #323232;
   color: #ffffff;
+  padding: 0 16px;
   /****** social media icons ******/
   /****** contacts information ******/
   /*** to add margin after every two lines ***/
   /*** to fill the entire section with black background ***/
 }
 
-.footer__contact {
-  margin: 0 16px;
+@media (min-width: 768px) and (max-width: 1440px) {
+  .footer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .footer {
+    padding: 0 180px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__contact {
-    margin: 0 24px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -496,6 +550,12 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -512,14 +572,13 @@ body {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
-    padding-top: 35px;
-    padding-right: 45px;
+    padding: 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__contact-icon-list {
-    padding-top: 20px;
+    padding: 0;
   }
 }
 
@@ -530,29 +589,24 @@ body {
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__contact-icon {
-    margin: 25px;
-    margin-left: 15px;
+    margin: 0;
+    margin-left: 32px;
   }
 }
 
 .footer__logo {
-  display: none;
+  display: nonepadding-top;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__logo {
     display: inline;
-    padding: 45px 0;
+    margin: 48px 18px;
   }
-}
-
-.footer__info {
-  margin: 0 16px;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__info {
-    margin: 0 24px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -594,14 +648,12 @@ body {
 }
 
 .footer__copy-rights {
-  margin: 0 16px;
   padding-bottom: 20px;
   width: 65%;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .footer__copy-rights {
-    margin: 0 24px;
     margin-top: 24px;
   }
 }
