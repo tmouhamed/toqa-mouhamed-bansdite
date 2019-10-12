@@ -300,13 +300,13 @@ body {
     @include tablet-size {
       @include header-tablet-style;
       padding: 0;
+      padding-right: 30px;
     }
   }
   &__contact-icon-list {
     @include tablet-size {
       padding: 0;
     }
-    
   }
   &__contact-icon {
     margin: 15px;
@@ -317,19 +317,25 @@ body {
     }
   }
   &__logo {
-    display: nonepadding-top;
     @include tablet-size {
       display: inline;
-      margin: 48px 18px;
+      padding: 0 25px;
+      margin: 48px 0;
+    }
+    @include desktop-size {
+      padding: 0;
+      padding-right: 20px;
     }
   }
   /****** contacts information ******/
 
-  &__info {
-    
+  &__info { 
     @include tablet-size {
-      justify-content: space-between;
+      justify-content: flex-start;
       @include flex-display-row;
+    }
+    @include desktop-size {
+      justify-content: flex-start;
     }
   }
   &__info-list {
@@ -340,6 +346,10 @@ body {
     @include tablet-size {
       margin: 0;
       padding: 0;
+      width: 35%;
+    }
+    @include desktop-size {
+      width: 25%;
     }
   }
   /*** to add margin after every two lines ***/
@@ -349,14 +359,15 @@ body {
   }
   &__list-item:nth-child(2),
   &__list-item:nth-child(4) {
-    margin-bottom: 15px;
+    margin-bottom: 24px;
   }
   /*** to fill the entire section with black background ***/
   &__copy-rights {
     padding-bottom: 20px;
     width: 65%;
     @include tablet-size {
-      margin-top: 24px;
+      margin: 0;
+      margin-top: 40px;
     }
   }
 }
