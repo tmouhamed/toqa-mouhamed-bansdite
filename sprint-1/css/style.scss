@@ -8,7 +8,6 @@ html,
 body {
   box-sizing: border-box;
   margin: 0;
-}
 *,
 *:before,
 *:after {
@@ -70,6 +69,10 @@ body {
       margin-left: 56px;
     }
   }
+  &__nav-list-item:hover {
+    opacity: 0.7;
+    border-bottom: 4px solid navy;
+  }
 }
 
 /*********
@@ -78,6 +81,7 @@ body {
 
 ********/
 .main {
+  grid-area: main;
   &__hero {
     /****** general mixin for flex-column-display ******/
     @include flex-display-row;
@@ -252,7 +256,7 @@ body {
       @include tablet-size {
         @include flex-display-row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
       }
       @include desktop-size {
@@ -263,18 +267,16 @@ body {
     &-gallery-image {
       @include standard-image-size;
       margin-bottom: 16px;
-      filter: grayscale(100);
 
+      filter: grayscale(100);
       &:hover {
         filter: grayscale(0);
       }
       @include tablet-size {
         max-width: 224px;
-        margin: 12px 15px;
       }
       @include desktop-size {
         max-width: 344px;
-        padding: 0 12px;
       }
     }
   }
@@ -396,4 +398,5 @@ body {
       margin-top: 40px;
     }
   }
+}
 }
