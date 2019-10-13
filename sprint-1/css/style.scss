@@ -23,6 +23,7 @@ body {
 .header {
   /****** general mixin for flex-column-display ******/
   @include flex-display-column;
+  align-items: center;
   background-color: $black-text;
   color: $white-text;
   @include tablet-size {
@@ -39,16 +40,22 @@ body {
       padding: 0;
     }
   }
+  &__nav {
+    width: 100%;
+    @include tablet-size {
+      width: auto;
+    }
+  }
   &__nav-list {
     display: flex;
     list-style: none;
     text-align: center;
-    margin: 0;
     padding: 0;
+    margin: 0;
   }
   &__nav-list-item {
     width: 50%;
-    margin: $mobile-margin; /** to looks like the mokeup 16px padding */
+    padding: $mobile-margin;
     padding-bottom: 10px;
     &:first-child {
       border-bottom: 4px solid $white-text;
@@ -108,6 +115,10 @@ body {
     @include pargraph-mobile-style;
     margin: 0 auto;
     color: $black-text;
+    
+    @include larger-desktop-size {
+      width: 55%;
+    }
 
     &-first-title {
       @include header-mobile-style;
@@ -144,6 +155,8 @@ body {
       margin-bottom: 40px;
       @include tablet-size {
         margin: $tablet-margin;
+        justify-content: center;
+        align-items: center;
       }
       @include desktop-size {
         margin: $desktop-margin; /***** to overlap the left&right margin ******/
@@ -239,7 +252,7 @@ body {
       @include tablet-size {
         @include flex-display-row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
       }
       @include desktop-size {
@@ -250,9 +263,14 @@ body {
     &-gallery-image {
       @include standard-image-size;
       margin-bottom: 16px;
+      filter: grayscale(100);
+
+      &:hover {
+        filter: grayscale(0);
+      }
       @include tablet-size {
         max-width: 224px;
-        padding: 0 12px;
+        margin: 12px 15px;
       }
       @include desktop-size {
         max-width: 344px;
@@ -329,7 +347,7 @@ body {
   }
   /****** contacts information ******/
 
-  &__info { 
+  &__info {
     @include tablet-size {
       justify-content: flex-start;
       @include flex-display-row;
@@ -360,6 +378,14 @@ body {
   &__list-item:nth-child(2),
   &__list-item:nth-child(4) {
     margin-bottom: 24px;
+  }
+  &__list-item:last-child {       /****** mailto email link ******/
+    color: $white-text;
+    text-decoration: underline;    
+
+    & :hover {
+      color: #0095ff;
+    }
   }
   /*** to fill the entire section with black background ***/
   &__copy-rights {
