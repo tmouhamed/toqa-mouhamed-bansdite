@@ -156,6 +156,11 @@ MAIN-CONTAINER SECTION
     margin: $mobile-margin;
     color: $black-text;
 
+    @include desktop-size {
+      @include flex-display-row;
+      justify-content: space-between;
+    }
+
     @include larger-desktop-size {
       width: 55%;
     }
@@ -175,12 +180,24 @@ MAIN-CONTAINER SECTION
 
     @include tablet-size {
       @include flex-display-row;
+      justify-content: space-between;
+    }
+
+    &-div {
+      @include tablet-size {
+        min-width: 15%;
+      }
     }
 
     &-title {
       margin: 0;
       color: #afafaf;
       @include subheader-mobile-style;
+    }
+    .hidden-title {
+      @include tablet-size {
+        display: none;
+      }
     }
     &-text {
       @include subheader-mobile-style;
@@ -194,6 +211,11 @@ MAIN-CONTAINER SECTION
       text-transform: uppercase;
       border: none;
       margin: 19px 0 16px 0; //the element before has a 13 bottom margin so 19+13 = 32px
+
+      @include tablet-size {
+        width: 20%;
+        border-radius: 5px;
+      }
     }
   }
 }
