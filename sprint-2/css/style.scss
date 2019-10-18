@@ -6,12 +6,18 @@ $black-text: #323232;
 
 html,
 body {
+  @include pargraph-mobile-style;
+  
+  @include tablet-size {
+    @include pargraph-tablet-style;
+  }
   box-sizing: border-box;
   margin: 0;
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 }
 
 /*********
@@ -83,7 +89,6 @@ body {
 
 ********/
 .main {
-  grid-area: main;
   &__hero {
     /****** general mixin for flex-column-display ******/
     @include flex-display-row;
@@ -121,7 +126,7 @@ body {
     @include pargraph-mobile-style;
     margin: 0 auto;
     color: $black-text;
-    
+
     @include larger-desktop-size {
       width: 55%;
     }
@@ -383,9 +388,10 @@ body {
   &__list-item:nth-child(4) {
     margin-bottom: 24px;
   }
-  &__list-item:last-child {       /****** mailto email link ******/
+  &__list-item:last-child {
+    /****** mailto email link ******/
     color: $white-text;
-    text-decoration: underline;    
+    text-decoration: underline;
 
     & :hover {
       color: #0095ff;
@@ -400,5 +406,4 @@ body {
       margin-top: 40px;
     }
   }
-}
 }

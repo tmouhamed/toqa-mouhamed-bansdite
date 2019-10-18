@@ -16,24 +16,21 @@
 /****** to reduce the repetition of the same hex color ******/
 html,
 body {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: Avenir Next-regular;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
-  /*********
+}
 
-  HEADER SECTION 
-
-********/
-  /*********
-
-  MAIN-CONTAINER SECTION 
-
-********/
-  /*********
-
-  FOOTER SECTION 
-
-********/
+@media (min-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: Avenir Next-regular;
+  }
 }
 
 html *,
@@ -46,8 +43,12 @@ body *:after {
           box-sizing: inherit;
 }
 
-html .header,
-body .header {
+/*********
+
+  HEADER SECTION 
+
+********/
+.header {
   /****** general mixin for flex-column-display ******/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,8 +66,7 @@ body .header {
 }
 
 @media (min-width: 768px) {
-  html .header,
-  body .header {
+  .header {
     /* to make the header in horizontal */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -81,38 +81,32 @@ body .header {
 }
 
 @media (min-width: 1440px) {
-  html .header,
-  body .header {
+  .header {
     padding: 0 180px;
   }
 }
 
-html .header__logo,
-body .header__logo {
+.header__logo {
   padding: 16px;
 }
 
 @media (min-width: 768px) {
-  html .header__logo,
-  body .header__logo {
+  .header__logo {
     padding: 0;
   }
 }
 
-html .header__nav,
-body .header__nav {
+.header__nav {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  html .header__nav,
-  body .header__nav {
+  .header__nav {
     width: auto;
   }
 }
 
-html .header__nav-list,
-body .header__nav-list {
+.header__nav-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,8 +116,7 @@ body .header__nav-list {
   margin: 0;
 }
 
-html .header__nav-list-item,
-body .header__nav-list-item {
+.header__nav-list-item {
   text-decoration: none;
   color: #ffffff;
   width: 50%;
@@ -131,14 +124,12 @@ body .header__nav-list-item {
   padding-bottom: 10px;
 }
 
-html .header__nav-list-item:first-child,
-body .header__nav-list-item:first-child {
+.header__nav-list-item:first-child {
   border-bottom: 4px solid #ffffff;
 }
 
 @media (min-width: 768px) {
-  html .header__nav-list-item,
-  body .header__nav-list-item {
+  .header__nav-list-item {
     width: 100%;
     margin: 0 30px;
     padding: 30px 5px;
@@ -146,26 +137,23 @@ body .header__nav-list-item:first-child {
 }
 
 @media (min-width: 1440px) {
-  html .header__nav-list-item,
-  body .header__nav-list-item {
+  .header__nav-list-item {
     margin: 0;
     margin-left: 56px;
   }
 }
 
-html .header__nav-list-item:hover,
-body .header__nav-list-item:hover {
+.header__nav-list-item:hover {
   opacity: 0.7;
   border-bottom: 4px solid navy;
 }
 
-html .main,
-body .main {
-  grid-area: main;
-}
+/*********
 
-html .main__hero,
-body .main__hero {
+  MAIN-CONTAINER SECTION 
+
+********/
+.main__hero {
   /****** general mixin for flex-column-display ******/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -191,21 +179,18 @@ body .main__hero {
 }
 
 @media (min-width: 768px) {
-  html .main__hero,
-  body .main__hero {
+  .main__hero {
     min-height: 400px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__hero,
-  body .main__hero {
+  .main__hero {
     min-height: 670px;
   }
 }
 
-html .main__hero-title,
-body .main__hero-title {
+.main__hero-title {
   font-size: 24px;
   line-height: 32px;
   font-family: Avenir Next-bold;
@@ -214,8 +199,7 @@ body .main__hero-title {
 }
 
 @media (min-width: 768px) {
-  html .main__hero-title,
-  body .main__hero-title {
+  .main__hero-title {
     font-size: 60px;
     line-height: 68px;
     font-family: Avenir Next-bold;
@@ -224,15 +208,13 @@ body .main__hero-title {
 }
 
 @media (min-width: 1440px) {
-  html .main__hero-title,
-  body .main__hero-title {
+  .main__hero-title {
     margin: 0 180px;
     width: 35%;
   }
 }
 
-html .main__content,
-body .main__content {
+.main__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,14 +231,12 @@ body .main__content {
 }
 
 @media (min-width: 2560px) {
-  html .main__content,
-  body .main__content {
+  .main__content {
     width: 55%;
   }
 }
 
-html .main__content-first-title,
-body .main__content-first-title {
+.main__content-first-title {
   font-size: 24px;
   line-height: 32px;
   font-family: Avenir Next-bold;
@@ -266,8 +246,7 @@ body .main__content-first-title {
 }
 
 @media (min-width: 768px) {
-  html .main__content-first-title,
-  body .main__content-first-title {
+  .main__content-first-title {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
@@ -278,15 +257,13 @@ body .main__content-first-title {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-first-title,
-  body .main__content-first-title {
+  .main__content-first-title {
     margin: 0 180px;
     margin-top: 48px;
   }
 }
 
-html .main__content-image,
-body .main__content-image {
+.main__content-image {
   width: 100%;
   height: auto;
   -webkit-box-pack: center;
@@ -301,23 +278,20 @@ body .main__content-image {
 }
 
 @media (min-width: 768px) {
-  html .main__content-image,
-  body .main__content-image {
+  .main__content-image {
     margin: 32px 0;
     max-width: 720px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__content-image,
-  body .main__content-image {
+  .main__content-image {
     max-width: 900px;
     margin: 48px 0;
   }
 }
 
-html .main__content-article,
-body .main__content-article {
+.main__content-article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -331,8 +305,7 @@ body .main__content-article {
 }
 
 @media (min-width: 768px) {
-  html .main__content-article,
-  body .main__content-article {
+  .main__content-article {
     margin: 0 24px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -344,8 +317,7 @@ body .main__content-article {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-article,
-  body .main__content-article {
+  .main__content-article {
     margin: 0 180px;
     /***** to overlap the left&right margin ******/
     margin-bottom: 48px;
@@ -353,8 +325,7 @@ body .main__content-article {
   }
 }
 
-html .main__content-article-qoute,
-body .main__content-article-qoute {
+.main__content-article-qoute {
   margin-bottom: 32px;
   font-size: 14px;
   line-height: 22px;
@@ -362,8 +333,7 @@ body .main__content-article-qoute {
 }
 
 @media (min-width: 768px) {
-  html .main__content-article-qoute,
-  body .main__content-article-qoute {
+  .main__content-article-qoute {
     font-size: 24px;
     line-height: 32px;
     font-family: Avenir Next-bold;
@@ -371,8 +341,7 @@ body .main__content-article-qoute {
   }
 }
 
-html .main__content-article-span,
-body .main__content-article-span {
+.main__content-article-span {
   margin: 32px 0 40px 0;
   font-size: 14px;
   line-height: 22px;
@@ -380,8 +349,7 @@ body .main__content-article-span {
 }
 
 @media (min-width: 768px) {
-  html .main__content-article-span,
-  body .main__content-article-span {
+  .main__content-article-span {
     font-size: 16px;
     line-height: 24px;
     font-family: Avenir Next-bolder;
@@ -390,16 +358,14 @@ body .main__content-article-span {
   }
 }
 
-html .main__content-box,
-body .main__content-box {
+.main__content-box {
   font-size: 13px;
   line-height: 18px;
   font-family: Avenir Next-regular;
 }
 
 @media (min-width: 768px) {
-  html .main__content-box,
-  body .main__content-box {
+  .main__content-box {
     font-size: 14px;
     line-height: 22px;
     font-family: Avenir Next-regular;
@@ -407,14 +373,12 @@ body .main__content-box {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-box,
-  body .main__content-box {
+  .main__content-box {
     margin: 0;
   }
 }
 
-html .main__content-box-title,
-body .main__content-box-title {
+.main__content-box-title {
   font-size: 14px;
   line-height: 22px;
   font-family: Avenir Next-bolder;
@@ -422,8 +386,7 @@ body .main__content-box-title {
 }
 
 @media (min-width: 768px) {
-  html .main__content-box-title,
-  body .main__content-box-title {
+  .main__content-box-title {
     font-size: 24px;
     line-height: 32px;
     font-family: Avenir Next-bold;
@@ -432,15 +395,13 @@ body .main__content-box-title {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-box-title,
-  body .main__content-box-title {
+  .main__content-box-title {
     margin: 56px 0 32px 0;
   }
 }
 
 @media (min-width: 768px) {
-  html .main__content-box-text,
-  body .main__content-box-text {
+  .main__content-box-text {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -453,57 +414,49 @@ body .main__content-box-title {
 }
 
 @media (min-width: 768px) {
-  html .main__content-text,
-  body .main__content-text {
+  .main__content-text {
     width: 50%;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__content-text,
-  body .main__content-text {
+  .main__content-text {
     width: 55%;
     margin: 0;
   }
 }
 
 @media (min-width: 768px) {
-  html .main__content-text:first-child,
-  body .main__content-text:first-child {
+  .main__content-text:first-child {
     margin-right: 24px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__content-text:first-child,
-  body .main__content-text:first-child {
+  .main__content-text:first-child {
     margin-right: 40px;
   }
 }
 
-html .main__content-gallery,
-body .main__content-gallery {
+.main__content-gallery {
   background-color: #fafafa;
   padding: 0 16px;
 }
 
 @media (min-width: 768px) {
-  html .main__content-gallery,
-  body .main__content-gallery {
+  .main__content-gallery {
     padding: 0 24px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__content-gallery,
-  body .main__content-gallery {
+  .main__content-gallery {
     padding: 0 180px;
     /***** to overlap the left&right margin ******/
   }
 }
 
-html .main__content-gallery-title,
-body .main__content-gallery-title {
+.main__content-gallery-title {
   font-size: 24px;
   line-height: 32px;
   font-family: Avenir Next-bold;
@@ -513,8 +466,7 @@ body .main__content-gallery-title {
 }
 
 @media (min-width: 768px) {
-  html .main__content-gallery-title,
-  body .main__content-gallery-title {
+  .main__content-gallery-title {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
@@ -523,22 +475,19 @@ body .main__content-gallery-title {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-gallery-title,
-  body .main__content-gallery-title {
+  .main__content-gallery-title {
     margin: 48px 0 64px 0;
     /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
     padding-left: 15px;
   }
 }
 
-html .main__content-gallery-list,
-body .main__content-gallery-list {
+.main__content-gallery-list {
   margin: 24px 0;
 }
 
 @media (min-width: 768px) {
-  html .main__content-gallery-list,
-  body .main__content-gallery-list {
+  .main__content-gallery-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -559,15 +508,13 @@ body .main__content-gallery-list {
 }
 
 @media (min-width: 1440px) {
-  html .main__content-gallery-list,
-  body .main__content-gallery-list {
+  .main__content-gallery-list {
     margin: 0;
     margin-bottom: 40px;
   }
 }
 
-html .main__content-gallery-image,
-body .main__content-gallery-image {
+.main__content-gallery-image {
   width: 100%;
   height: auto;
   -webkit-box-pack: center;
@@ -581,28 +528,29 @@ body .main__content-gallery-image {
           filter: grayscale(100);
 }
 
-html .main__content-gallery-image:hover,
-body .main__content-gallery-image:hover {
+.main__content-gallery-image:hover {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
 }
 
 @media (min-width: 768px) {
-  html .main__content-gallery-image,
-  body .main__content-gallery-image {
+  .main__content-gallery-image {
     max-width: 224px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .main__content-gallery-image,
-  body .main__content-gallery-image {
+  .main__content-gallery-image {
     max-width: 344px;
   }
 }
 
-html .footer,
-body .footer {
+/*********
+
+  FOOTER SECTION 
+
+********/
+.footer {
   font-size: 13px;
   line-height: 18px;
   font-family: Avenir Next-regular;
@@ -616,22 +564,19 @@ body .footer {
 }
 
 @media (min-width: 768px) {
-  html .footer,
-  body .footer {
+  .footer {
     padding: 0 24px;
   }
 }
 
 @media (min-width: 1440px) {
-  html .footer,
-  body .footer {
+  .footer {
     padding: 0 180px;
   }
 }
 
 @media (min-width: 768px) {
-  html .footer__contact,
-  body .footer__contact {
+  .footer__contact {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -647,8 +592,7 @@ body .footer {
 }
 
 @media (min-width: 768px) {
-  html .footer__contact-div,
-  body .footer__contact-div {
+  .footer__contact-div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -666,8 +610,7 @@ body .footer {
   }
 }
 
-html .footer__contact-title,
-body .footer__contact-title {
+.footer__contact-title {
   font-size: 24px;
   line-height: 32px;
   font-family: Avenir Next-bold;
@@ -676,8 +619,7 @@ body .footer__contact-title {
 }
 
 @media (min-width: 768px) {
-  html .footer__contact-title,
-  body .footer__contact-title {
+  .footer__contact-title {
     font-size: 36px;
     line-height: 44px;
     font-family: Avenir Next-bold;
@@ -687,29 +629,25 @@ body .footer__contact-title {
 }
 
 @media (min-width: 768px) {
-  html .footer__contact-icon-list,
-  body .footer__contact-icon-list {
+  .footer__contact-icon-list {
     padding: 0;
   }
 }
 
-html .footer__contact-icon,
-body .footer__contact-icon {
+.footer__contact-icon {
   margin: 15px;
   margin-left: 5px;
 }
 
 @media (min-width: 768px) {
-  html .footer__contact-icon,
-  body .footer__contact-icon {
+  .footer__contact-icon {
     margin: 0;
     margin-left: 32px;
   }
 }
 
 @media (min-width: 768px) {
-  html .footer__logo,
-  body .footer__logo {
+  .footer__logo {
     display: inline;
     padding: 0 25px;
     margin: 48px 0;
@@ -717,16 +655,14 @@ body .footer__contact-icon {
 }
 
 @media (min-width: 1440px) {
-  html .footer__logo,
-  body .footer__logo {
+  .footer__logo {
     padding: 0;
     padding-right: 20px;
   }
 }
 
 @media (min-width: 768px) {
-  html .footer__info,
-  body .footer__info {
+  .footer__info {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
@@ -742,16 +678,14 @@ body .footer__contact-icon {
 }
 
 @media (min-width: 1440px) {
-  html .footer__info,
-  body .footer__info {
+  .footer__info {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
 }
 
-html .footer__info-list,
-body .footer__info-list {
+.footer__info-list {
   list-style: none;
   padding: 0;
   margin-bottom: 25px;
@@ -761,8 +695,7 @@ body .footer__info-list {
 }
 
 @media (min-width: 768px) {
-  html .footer__info-list,
-  body .footer__info-list {
+  .footer__info-list {
     margin: 0;
     padding: 0;
     width: 35%;
@@ -770,47 +703,38 @@ body .footer__info-list {
 }
 
 @media (min-width: 1440px) {
-  html .footer__info-list,
-  body .footer__info-list {
+  .footer__info-list {
     width: 25%;
   }
 }
 
-html .footer__list-item:nth-child(1), html .footer__list-item:nth-child(2),
-body .footer__list-item:nth-child(1),
-body .footer__list-item:nth-child(2) {
+.footer__list-item:nth-child(1), .footer__list-item:nth-child(2) {
   font-size: 14px;
   line-height: 22px;
   font-family: Avenir Next-bolder;
 }
 
-html .footer__list-item:nth-child(2), html .footer__list-item:nth-child(4),
-body .footer__list-item:nth-child(2),
-body .footer__list-item:nth-child(4) {
+.footer__list-item:nth-child(2), .footer__list-item:nth-child(4) {
   margin-bottom: 24px;
 }
 
-html .footer__list-item:last-child,
-body .footer__list-item:last-child {
+.footer__list-item:last-child {
   /****** mailto email link ******/
   color: #ffffff;
   text-decoration: underline;
 }
 
-html .footer__list-item:last-child :hover,
-body .footer__list-item:last-child :hover {
+.footer__list-item:last-child :hover {
   color: #0095ff;
 }
 
-html .footer__copy-rights,
-body .footer__copy-rights {
+.footer__copy-rights {
   padding-bottom: 20px;
   width: 65%;
 }
 
 @media (min-width: 768px) {
-  html .footer__copy-rights,
-  body .footer__copy-rights {
+  .footer__copy-rights {
     margin: 0;
     margin-top: 40px;
   }

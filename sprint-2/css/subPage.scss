@@ -6,12 +6,18 @@ $black-text: #323232;
 
 html,
 body {
+  @include pargraph-mobile-style;
+
+  @include tablet-size {
+    @include pargraph-tablet-style;
+  }
   box-sizing: border-box;
   margin: 0;
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 }
 
 /*********
@@ -58,7 +64,7 @@ body {
     width: 50%;
     padding: $mobile-margin;
     padding-bottom: 10px;
-    &:active{
+    &:active {
       border-bottom: 4px solid $white-text;
     }
     @include tablet-size {
@@ -79,11 +85,10 @@ body {
 
 /*********
 
-  MAIN-CONTAINER SECTION 
+MAIN-CONTAINER SECTION 
 
 ********/
 .main {
-  grid-area: main;
   &__hero {
     /****** general mixin for flex-column-display ******/
     @include flex-display-column;
@@ -96,27 +101,34 @@ body {
     background-repeat: no-repeat;
 
     @include tablet-size {
-      min-height: 400px;
+      min-height: 670px;
+      padding: $tablet-margin;
     }
     @include desktop-size {
-      min-height: 670px;
+      padding: $desktop-margin;
+      @include flex-display-row;
     }
   }
   &__hero-div {
+    width: 100%;
     margin: 64px 0;
-
+    //change the margin for the tablet & desktop screen size
+    @include tablet-size {
+      width: 80%;
+      margin: 96px 0 40px 0;
+    }
+    @include desktop-size {
+      margin: 160px 0;
+    }
     &-subtitle {
-      @include header-mobile-style;
+      @include subheader-mobile-style;
       margin: 0;
-      padding-bottom: 10px;
-      font-size: 16px;
+      margin-bottom: 10px;
+
       @include tablet-size {
-        @include hero-tablet-style;
-        margin: $tablet-margin;
-      }
-      @include desktop-size {
-        margin: $desktop-margin;
-        width: 35%;
+        @include header2-tablet-style;
+        font-family: $demibold-font;
+        margin-bottom: 24px;
       }
     }
     &-title {
@@ -124,23 +136,26 @@ body {
       margin: 0;
       @include tablet-size {
         @include hero-tablet-style;
-        margin: $tablet-margin;
       }
       @include desktop-size {
-        margin: $desktop-margin;
         width: 35%;
       }
     }
-  } 
+  }
   &__iframe {
-    padding-bottom: 25px;
+    width: 100%;
+    border-radius: 5px;
+    @include tablet-size {
+      width: 60%;
+      max-height: 146px;
+    }
   }
   &__content {
     @include flex-display-column;
     @include pargraph-mobile-style;
     margin: $mobile-margin;
     color: $black-text;
-    
+
     @include larger-desktop-size {
       width: 55%;
     }
@@ -148,28 +163,38 @@ body {
   &__content-title {
     @include header-mobile-style;
     margin: 32px 0 40px 0;
+
+    @include tablet-size {
+      @include header-tablet-style;
+      margin: 32px 0;
+    }
   }
   &__content-cards {
-    border-bottom: 1px solid #E1E1E1;
-    margin-bottom: 16px ;
-    
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 16px;
+
+    @include tablet-size {
+      @include flex-display-row;
+    }
+
     &-title {
       margin: 0;
-      color: #AFAFAF;
+      color: #afafaf;
       @include subheader-mobile-style;
     }
     &-text {
       @include subheader-mobile-style;
+      margin: 16px 0 24px 0;
     }
     &-button {
       background-color: $black-text;
       color: $white-text;
-      padding: 10px 40%;
+      width: 100%;
+      padding: 15px 0;
       text-transform: uppercase;
       border: none;
-      margin-bottom: 16px;
+      margin: 19px 0 16px 0; //the element before has a 13 bottom margin so 19+13 = 32px
     }
-
   }
 }
 
@@ -272,9 +297,10 @@ body {
   &__list-item:nth-child(4) {
     margin-bottom: 24px;
   }
-  &__list-item:last-child {       /****** mailto email link ******/
+  &__list-item:last-child {
+    /****** mailto email link ******/
     color: $white-text;
-    text-decoration: underline;    
+    text-decoration: underline;
 
     & :hover {
       color: #0095ff;
@@ -289,5 +315,4 @@ body {
       margin-top: 40px;
     }
   }
-}
 }
