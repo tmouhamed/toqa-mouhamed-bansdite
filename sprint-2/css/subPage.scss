@@ -107,6 +107,7 @@ MAIN-CONTAINER SECTION
     @include desktop-size {
       padding: $desktop-margin;
       @include flex-display-row;
+      align-items: center;
     }
   }
   &__hero-div {
@@ -137,9 +138,6 @@ MAIN-CONTAINER SECTION
       @include tablet-size {
         @include hero-tablet-style;
       }
-      @include desktop-size {
-        width: 35%;
-      }
     }
   }
   &__iframe {
@@ -149,6 +147,9 @@ MAIN-CONTAINER SECTION
       width: 60%;
       max-height: 146px;
     }
+    @include desktop-size {
+      margin-left: 64px;
+    }
   }
   &__content {
     @include flex-display-column;
@@ -156,22 +157,33 @@ MAIN-CONTAINER SECTION
     margin: $mobile-margin;
     color: $black-text;
 
+    @include tablet-size {
+      margin: $tablet-margin;
+    }
     @include desktop-size {
+      margin: $desktop-margin;
       @include flex-display-row;
       justify-content: space-between;
+      align-items: baseline;
     }
 
     @include larger-desktop-size {
       width: 55%;
     }
-  }
-  &__content-title {
-    @include header-mobile-style;
-    margin: 32px 0 40px 0;
+    &-title {
+      @include header-mobile-style;
+      margin: 32px 0 40px 0;
 
-    @include tablet-size {
-      @include header-tablet-style;
-      margin: 32px 0;
+      @include tablet-size {
+        @include header-tablet-style;
+        margin: 32px 0;
+      }
+    }
+    &-section {
+      //make the tickets section 70% of the width of the screen only *** DESKTOP SCREEN ***
+      @include desktop-size {
+        width: 75%;
+      }
     }
   }
   &__content-cards {
@@ -179,8 +191,11 @@ MAIN-CONTAINER SECTION
     margin-bottom: 16px;
 
     @include tablet-size {
+      /****** remove the margin bottom for the tablet & desktop screens ******/
+      margin-bottom: 40px;
       @include flex-display-row;
       justify-content: space-between;
+      align-items: flex-end;
     }
 
     &-div {
@@ -188,12 +203,17 @@ MAIN-CONTAINER SECTION
         min-width: 15%;
       }
     }
-
     &-title {
       margin: 0;
       color: #afafaf;
       @include subheader-mobile-style;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+        margin-bottom: 40px;
+      }
     }
+    /**** A special class to hide the table heading in the tablet size ****/
     .hidden-title {
       @include tablet-size {
         display: none;
@@ -202,20 +222,21 @@ MAIN-CONTAINER SECTION
     &-text {
       @include subheader-mobile-style;
       margin: 16px 0 24px 0;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+        margin: 16px 0;
+      }
     }
     &-button {
-      background-color: $black-text;
-      color: $white-text;
-      width: 100%;
-      padding: 15px 0;
-      text-transform: uppercase;
-      border: none;
+      @include button-style;
       margin: 19px 0 16px 0; //the element before has a 13 bottom margin so 19+13 = 32px
 
       @include tablet-size {
         width: 20%;
-        border-radius: 5px;
+        max-height: 48px
       }
+
     }
   }
 }

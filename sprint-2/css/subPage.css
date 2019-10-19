@@ -191,6 +191,9 @@ MAIN-CONTAINER SECTION
         -ms-flex-direction: row;
             flex-direction: row;
     height: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -245,12 +248,6 @@ MAIN-CONTAINER SECTION
   }
 }
 
-@media (min-width: 1440px) {
-  .main__hero-div-title {
-    width: 35%;
-  }
-}
-
 .main__iframe {
   width: 100%;
   border-radius: 5px;
@@ -260,6 +257,12 @@ MAIN-CONTAINER SECTION
   .main__iframe {
     width: 60%;
     max-height: 146px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__iframe {
+    margin-left: 64px;
   }
 }
 
@@ -279,8 +282,15 @@ MAIN-CONTAINER SECTION
   color: #323232;
 }
 
+@media (min-width: 768px) {
+  .main__content {
+    margin: 0 24px;
+  }
+}
+
 @media (min-width: 1440px) {
   .main__content {
+    margin: 0 180px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -292,6 +302,9 @@ MAIN-CONTAINER SECTION
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
   }
 }
 
@@ -317,13 +330,22 @@ MAIN-CONTAINER SECTION
   }
 }
 
+@media (min-width: 1440px) {
+  .main__content-section {
+    width: 75%;
+  }
+}
+
 .main__content-cards {
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 16px;
+  /**** A special class to hide the table heading in the tablet size ****/
 }
 
 @media (min-width: 768px) {
   .main__content-cards {
+    /****** remove the margin bottom for the tablet & desktop screens ******/
+    margin-bottom: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -335,6 +357,9 @@ MAIN-CONTAINER SECTION
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
 }
 
@@ -353,6 +378,15 @@ MAIN-CONTAINER SECTION
 }
 
 @media (min-width: 768px) {
+  .main__content-cards-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Avenir Next-bolder;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) {
   .main__content-cards .hidden-title {
     display: none;
   }
@@ -365,6 +399,15 @@ MAIN-CONTAINER SECTION
   margin: 16px 0 24px 0;
 }
 
+@media (min-width: 768px) {
+  .main__content-cards-text {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Avenir Next-bolder;
+    margin: 16px 0;
+  }
+}
+
 .main__content-cards-button {
   background-color: #323232;
   color: #ffffff;
@@ -372,13 +415,14 @@ MAIN-CONTAINER SECTION
   padding: 15px 0;
   text-transform: uppercase;
   border: none;
+  border-radius: 5px;
   margin: 19px 0 16px 0;
 }
 
 @media (min-width: 768px) {
   .main__content-cards-button {
     width: 20%;
-    border-radius: 5px;
+    max-height: 48px;
   }
 }
 

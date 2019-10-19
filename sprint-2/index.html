@@ -15,8 +15,12 @@
                 alt="site-logo"></a>
         <nav class="header__nav">
             <ul class="header__nav-list">
-                <a class="header__nav-list-item" href="./index.html"><li>Biography</li></a>
-                <a class="header__nav-list-item" href="./show.html"><li>Shows</li></a>
+                <a class="header__nav-list-item" href="./index.html">
+                    <li>Biography</li>
+                </a>
+                <a class="header__nav-list-item" href="./show.html">
+                    <li>Shows</li>
+                </a>
             </ul>
         </nav>
     </header>
@@ -62,6 +66,8 @@
                     </div>
                 </section>
             </article>
+
+            <!-- GALLERY SECTION  -->
             <article class="main__content-gallery">
                 <h1 class="main__content-gallery-title">Photo Gallery</h1>
                 <div class="main__content-gallery-list">
@@ -74,6 +80,22 @@
                     <img class="main__content-gallery-image" src="./assets/Images/Photo-gallery-8.jpg">
                     <img class="main__content-gallery-image" src="./assets/Images/Photo-gallery-7.jpg">
                     <img class="main__content-gallery-image" src="./assets/Images/Photo-gallery-9.jpg">
+                </div>
+            </article>
+
+            <!-- COMMENTS SECTION -->
+            <article class="main__content-comments">
+                <h1 class="main__content-comments-heading">Join the Conversation</h1>
+                <div class="main__content-comments-div">
+                    <img class="main__content-comments-picture" src="./assets/Images/avatar.png">
+                    <form class="main__content-comments-form">
+                        <label class="main__content-comments-form__label" for="name">Name</label>
+                        <input class="main__content-comments-form__input" type="text" id="name" name="name" placeholder="Your Name" />
+
+                        <label class="main__content-comments-form__label" for="comment">Comment</label>
+                        <textarea class="main__content-comments-form__input textArea" type="text" id="comment" name="comment" placeholder="Add a new comment"></textarea>
+                        <button class="main__content-comments-form__button" id="commentContent__addButton" type="submit">COMMENT</button>
+                    </form>
                 </div>
             </article>
         </section>
@@ -96,21 +118,24 @@
                 <li class="footer__list-item">The Bees Knees Management</li>
                 <li class="footer__list-item">460 King Street West </li>
                 <li class="footer__list-item">Toronto, Ontario M5V 1L7</li>
-                <li><a class="footer__list-item" href="info@thebeesknees.com" target="_blank">info@thebeesknees.com</a></li>
+                <li><a class="footer__list-item" href="info@thebeesknees.com" target="_blank">info@thebeesknees.com</a>
+                </li>
             </ul>
             <ul class="footer__info-list">
                 <li class="footer__list-item">Marsha Vlasic</li>
                 <li class="footer__list-item">Artist Group International</li>
                 <li class="footer__list-item">Booking Agent for</li>
                 <li class="footer__list-item">US / South America / Japan</li>
-                <li><a class="footer__list-item" href="marsha.vlasic@artistgrp.com" target="_blank">marsha.vlasic@artistgrp.com</a></li>
+                <li><a class="footer__list-item" href="marsha.vlasic@artistgrp.com"
+                        target="_blank">marsha.vlasic@artistgrp.com</a></li>
             </ul>
             <ul class="footer__info-list">
                 <li class="footer__list-item">Russel Warby</li>
                 <li class="footer__list-item">William Morrir Entertainment</li>
                 <li class="footer__list-item">Booking Agent for</li>
                 <li class="footer__list-item">UK / EU / AU</li>
-                <li><a class="footer__list-item" href="mailto: RLW@wmeentertainment.com" target="_blank">RLW@wmeentertainment.com</a></li>
+                <li><a class="footer__list-item" href="mailto: RLW@wmeentertainment.com"
+                        target="_blank">RLW@wmeentertainment.com</a></li>
             </ul>
         </article>
         <p class="footer__copy-rights">

@@ -19,73 +19,82 @@ $regular-font: Avenir Next-regular;
 $bold-font: Avenir Next-bold;
 $demibold-font: Avenir Next-bolder;
 @mixin tablet-size {
-    @media (min-width: 768px){
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 @mixin desktop-size {
-    @media (min-width: 1440px){
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 @mixin larger-desktop-size {
-  @media (min-width: 2560px){
-      @content;
+  @media (min-width: 2560px) {
+    @content;
   }
 }
 @mixin flex-display-column {
-    display: flex;
-    flex-direction: column;  
-    height: auto;
-  }
-  @mixin flex-display-row {
-    display: flex;
-    flex-direction: row;  
-    height: auto;
-  }
-  @mixin standard-image-size {
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-  }
-  @mixin header-mobile-style {
-    font-size: 24px;
-    line-height: 32px;
-    font-family: $bold-font;
-  }
-  @mixin subheader-mobile-style {
-    font-size: 14px;
-    line-height: 22px;
-    font-family: $demibold-font;
-  }
-  @mixin pargraph-mobile-style{
-    font-size: 13px;
-    line-height: 18px;
-    font-family: $regular-font;
-  }
-  @mixin hero-tablet-style {
-    font-size: 60px;
-    line-height: 68px;
-    font-family: $bold-font;
-  }
-  @mixin header-tablet-style {
-    font-size: 36px;
-    line-height: 44px;
-    font-family: $bold-font;
-  }
-  @mixin header2-tablet-style {
-    font-size: 24px;
-    line-height: 32px;
-    font-family: $bold-font;
-  }
-  @mixin subheader-tablet-style {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: $demibold-font;
-  }
-  @mixin pargraph-tablet-style{
-    font-size: 14px;
-    line-height: 22px;
-    font-family: $regular-font;
-  }
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+@mixin flex-display-row {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+@mixin standard-image-size {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+@mixin header-mobile-style {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: $bold-font;
+}
+@mixin subheader-mobile-style {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: $demibold-font;
+}
+@mixin pargraph-mobile-style {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: $regular-font;
+}
+@mixin hero-tablet-style {
+  font-size: 60px;
+  line-height: 68px;
+  font-family: $bold-font;
+}
+@mixin header-tablet-style {
+  font-size: 36px;
+  line-height: 44px;
+  font-family: $bold-font;
+}
+@mixin header2-tablet-style {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: $bold-font;
+}
+@mixin subheader-tablet-style {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: $demibold-font;
+}
+@mixin pargraph-tablet-style {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: $regular-font;
+}
+@mixin button-style {
+  background-color: $black-text;
+  color: $white-text;
+  width: 100%;
+  padding: 15px 0;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+}
