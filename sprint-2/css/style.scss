@@ -3,6 +3,7 @@
 /****** to reduce the repetition of the same hex color ******/
 $white-text: #ffffff;
 $black-text: #323232;
+$border-color: #e1e1e1;
 
 html,
 body {
@@ -283,9 +284,11 @@ body {
       }
     }
 
-    /**** COMMENT SECTION STYLEING  ****/
+    /**** COMMENT FORM STYLEING  ****/
 
     &-comments {
+      margin: 0;
+
       &-heading {
         margin: 32px 0 40px 0;
         @include header-mobile-style;
@@ -296,11 +299,12 @@ body {
         }
       }
       &-div {
+        border-bottom: 1px solid $border-color;
         @include flex-display-row;
         justify-content: space-evenly;
 
         @include tablet-size {
-          margin-left: 20%;
+          margin: 0 26%;
         }
       }
       &-picture {
@@ -326,7 +330,7 @@ body {
         }
         &__input {
           background-color: #fafafa;
-          border: 1px solid #e1e1e1;
+          border: 1px solid $border-color;
           border-radius: 5px;
           padding: 10px;
           margin: 5px 0 10px 0;
@@ -355,9 +359,69 @@ body {
             order: 2;
           }
           @include desktop-size {
-            width: 19%;
+            width: 35%;
           }
         }
+      }
+    }
+
+    /**** COMMENTs SECTION STYLEING  ****/
+
+    &-comment {
+      margin: 0;
+      margin-bottom: 40px;
+
+      @include tablet-size {
+        margin: 0 26%;
+        margin-bottom: 40px;
+      }
+
+      &-div {
+        @include pargraph-mobile-style;
+        @include flex-display-row;
+        border-bottom: 1px solid $border-color;
+        padding: 24px 0;
+
+        @include tablet-size {
+          @include pargraph-tablet-style;
+        }
+      }
+      &-section {
+        @include flex-display-column;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 16px;
+      }
+      &-picture {
+        background-color: silver;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      &-heading {
+        @include flex-display-row;
+        justify-content: space-between;
+        align-items: center;
+
+        &-h4 {
+          margin: 0;
+          margin-bottom: 16px;
+          @include subheader-mobile-style;
+
+          @include tablet-size {
+            @include subheader-tablet-style;
+          }
+        }
+        &-date {
+          margin: 0;
+          margin-bottom: 16px;
+          font-size: 14px;
+          color: silver;
+        }
+      }
+      &-message {
+        margin: 0;
       }
     }
   }

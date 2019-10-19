@@ -3,6 +3,7 @@
 /****** to reduce the repetition of the same hex color ******/
 $white-text: #ffffff;
 $black-text: #323232;
+$border-color: #e1e1e1;
 
 html,
 body {
@@ -187,7 +188,7 @@ MAIN-CONTAINER SECTION
     }
   }
   &__content-cards {
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid $border-color;
     margin-bottom: 16px;
 
     @include tablet-size {
