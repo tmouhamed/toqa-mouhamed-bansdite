@@ -60,13 +60,13 @@ body {
     margin: 0;
   }
   &__nav-list-item {
-    text-decoration: none;
-    color: $white-text;
     width: 50%;
     padding: $mobile-margin;
     padding-bottom: 10px;
-    &:first-child {
-      border-bottom: 4px solid $white-text;
+
+    &-link{
+      text-decoration: none;
+      color: $white-text;
     }
     @include tablet-size {
       width: 100%;
@@ -78,9 +78,12 @@ body {
       margin-left: 56px;
     }
   }
+  //for the underline for the selected page
+  &__currentPage {
+    border-bottom: 4px solid $white-text;
+  }
   &__nav-list-item:hover {
     opacity: 0.7;
-    border-bottom: 4px solid navy;
   }
 }
 
@@ -131,6 +134,7 @@ body {
     @include tablet-size {
       margin: $tablet-margin;
     }
+
     @include desktop-size {
       margin: $desktop-margin;
     }
@@ -146,6 +150,10 @@ body {
         @include header-tablet-style;
         margin-top: 45px;
         padding: 0;
+      }
+      @include larger-tablet-size {
+        margin: 0 10%;
+        margin-top: 45px;
       }
       @include desktop-size {
         margin-top: 48px;
@@ -170,6 +178,9 @@ body {
       @include tablet-size {
         justify-content: center;
         align-items: center;
+      }
+      @include larger-tablet-size {
+        margin: 0 23%;
       }
       @include desktop-size {
         margin-bottom: 48px;
@@ -241,6 +252,10 @@ body {
     &-gallery {
       background-color: #fafafa;
 
+      @include larger-tablet-size {
+        margin: 0 20%;
+      }
+
       &-title {
         @include header-mobile-style;
         margin: 0;
@@ -296,6 +311,9 @@ body {
         @include tablet-size {
           margin: 48px 0 56px 0;
           @include header-tablet-style;
+        }
+        @include larger-tablet-size {
+          margin: 48px 10% 56px 10%;;
         }
       }
       &-div {
@@ -375,7 +393,6 @@ body {
         margin: 0 26%;
         margin-bottom: 40px;
       }
-
       &-div {
         @include pargraph-mobile-style;
         @include flex-display-row;

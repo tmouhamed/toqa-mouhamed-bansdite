@@ -60,13 +60,13 @@ body {
     margin: 0;
   }
   &__nav-list-item {
-    text-decoration: none;
-    color: $white-text;
     width: 50%;
     padding: $mobile-margin;
     padding-bottom: 10px;
-    &:active {
-      border-bottom: 4px solid $white-text;
+
+    &-link{
+      text-decoration: none;
+      color: $white-text;
     }
     @include tablet-size {
       width: 100%;
@@ -78,9 +78,11 @@ body {
       margin-left: 56px;
     }
   }
+  &__currentPage {
+    border-bottom: 4px solid $white-text;
+  }
   &__nav-list-item:hover {
     opacity: 0.7;
-    border-bottom: 4px solid navy;
   }
 }
 
@@ -161,6 +163,12 @@ MAIN-CONTAINER SECTION
     @include tablet-size {
       margin: $tablet-margin;
     }
+    @include larger-tablet-size {
+      margin: 0 10%;
+      @include flex-display-row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
     @include desktop-size {
       margin: $desktop-margin;
       @include flex-display-row;
@@ -182,6 +190,9 @@ MAIN-CONTAINER SECTION
     }
     &-section {
       //make the tickets section 70% of the width of the screen only *** DESKTOP SCREEN ***
+      @include larger-tablet-size {
+        width: 75%;
+      }
       @include desktop-size {
         width: 75%;
       }

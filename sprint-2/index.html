@@ -15,12 +15,8 @@
                 alt="site-logo"></a>
         <nav class="header__nav">
             <ul class="header__nav-list">
-                <a class="header__nav-list-item" href="./index.html">
-                    <li>Biography</li>
-                </a>
-                <a class="header__nav-list-item" href="./show.html">
-                    <li>Shows</li>
-                </a>
+                <li class="header__nav-list-item header__currentPage"><a class="header__nav-list-item-link" href="./index.html">Biography</a></li>
+                <li class="header__nav-list-item "><a class="header__nav-list-item-link" href="./show.html">Shows</a></li>
             </ul>
         </nav>
     </header>
@@ -91,10 +87,12 @@
                     <img class="main__content-comments-picture" src="./assets/Images/avatar.png">
                     <form id="commentForm" class="main__content-comments-form">
                         <label for="name" class="main__content-comments-form__label">Name</label>
-                        <input class="main__content-comments-form__input" placeholder="Your Name" id="name" type="name" name="name">
+                        <input class="main__content-comments-form__input" placeholder="Your Name" id="name" type="name"
+                            name="name">
 
                         <label for="comment" class="main__content-comments-form__label">Comment</label>
-                        <textarea class="main__content-comments-form__input textArea" id="comment" name="comment" placeholder="Add a new comment"></textarea>
+                        <textarea class="main__content-comments-form__input textArea" id="comment" name="comment"
+                            placeholder="Add a new comment"></textarea>
                         <button class="main__content-comments-form__button" method="POST" type="submit">Comment</button>
                     </form>
                 </div>

@@ -1,3 +1,22 @@
+let comments = [
+    {
+        name: 'Micheal Lyons',
+        time: 12 / 18 / 2018,
+        message: 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.'
+    },
+    {
+        name: 'Gary Wong',
+        time: 12 / 12 / 2018,
+        message: 'Every time I see him shred I feel so motivated to get off my couch and hop on my board.He’s so talented! I wish I can ride like him one day so I can really enjoy myself!'
+    },
+    {
+        name: 'Theodore Duncan',
+        time: 12 / 15 / 2018,
+        message: 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!'
+    },
+];
+
+
 const form = document.querySelector('.main__content-comments-form');
 
 form.addEventListener('submit', (event) => {
@@ -5,7 +24,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     let commentObject = {
-        commentName: form.name.value, 
+        commentName: form.name.value,
         commentMessage: form.comment.value
     }
     let newComment = [];
@@ -13,7 +32,10 @@ form.addEventListener('submit', (event) => {
     if (commentObject.commentName !== '' && commentObject.commentMessage !== "") {
         newComment.unshift(commentObject);
 
-        showComment(newComment);
+        displayComment(newComment);
+        event.target.name.value = '';
+        event.target.comment.value = '';
+
     }
 });
 
@@ -25,7 +47,7 @@ function makeCommentNode(comment) {
     // add the inner html for the node
     let parentDiv = document.createElement('div');
     parentDiv.className = 'main__content-comment-div';
-   
+
     let image = document.createElement('img');
     image.className = 'main__content-comment-picture';
     image.setAttribute('alt', "");
@@ -44,7 +66,7 @@ function makeCommentNode(comment) {
     let commentDate = document.createElement('span');
     commentDate.className = 'main__content-comment-heading-date';
     commentDate.textContent = newCommentDate();
-    
+
     let commentMessage = document.createElement('p');
     commentMessage.className = 'main__content-comment-heading-date';
     commentMessage.textContent = comment.message;
@@ -56,10 +78,10 @@ function makeCommentNode(comment) {
     divSection.appendChild(commentMessage);
     divHeading.appendChild(commentName);
     divHeading.appendChild(commentDate);
-    
+
     return parentDiv;
 }
-function showComment (commentArray) {
+function displayComment(commentArray) {
     let commentText = {
         name: commentArray[0].commentName,
         message: commentArray[0].commentMessage
@@ -67,7 +89,7 @@ function showComment (commentArray) {
 
     let articleClass = document.querySelector('.main__content-comment');
     let commentNode = makeCommentNode(commentText)
-    articleClass.appendChild(commentNode);
+    articleClass.prepend(commentNode);
 
 }
 function newCommentDate() {
@@ -77,8 +99,8 @@ function newCommentDate() {
     let commentMonth = comment.getMonth()
     let commentYear = comment.getFullYear();
 
-    return  commentMonth + '/' + commentDatee + '/' + commentYear;
-} 
+    return commentMonth + '/' + commentDatee + '/' + commentYear;
+}
 
 
 
