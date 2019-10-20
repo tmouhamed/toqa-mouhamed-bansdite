@@ -17,42 +17,67 @@ form.addEventListener('submit', (event) => {
     }
 });
 
+/***** Add a NEW node to the comments nodes */
+
+function makeCommentNode(comment) {
+    // to select the comment article in the DOM
+
+    // add the inner html for the node
+    let parentDiv = document.createElement('div');
+    parentDiv.className = 'main__content-comment-div';
+   
+    let image = document.createElement('img');
+    image.className = 'main__content-comment-picture';
+    image.setAttribute('alt', "");
+    image.setAttribute('src', "");
+
+    let divSection = document.createElement('div');
+    divSection.className = 'main__content-comment-section';
+
+    let divHeading = document.createElement('div');
+    divHeading.className = 'main__content-comment-heading';
+
+    let commentName = document.createElement('h4');
+    commentName.className = 'main__content-comment-heading-h4';
+    commentName.textContent = comment.name;
+
+    let commentDate = document.createElement('span');
+    commentDate.className = 'main__content-comment-heading-date';
+    commentDate.textContent = newCommentDate();
+    
+    let commentMessage = document.createElement('p');
+    commentMessage.className = 'main__content-comment-heading-date';
+    commentMessage.textContent = comment.message;
+
+    //assigned every child with its parent "check the html hirarechy"
+    parentDiv.appendChild(image);
+    parentDiv.appendChild(divSection);
+    divSection.appendChild(divHeading);
+    divSection.appendChild(commentMessage);
+    divHeading.appendChild(commentName);
+    divHeading.appendChild(commentDate);
+    
+    return parentDiv;
+}
 function showComment (commentArray) {
     let commentText = {
         name: commentArray[0].commentName,
         message: commentArray[0].commentMessage
     }
 
-    makeCommentNode(commentText);
+    let articleClass = document.querySelector('.main__content-comment');
+    let commentNode = makeCommentNode(commentText)
+    articleClass.appendChild(commentNode);
+
 }
-
-/***** Add a NEW node to the comments nodes */
-
-function makeCommentNode(comment) {
-    //to select the comment article in the DOM
-    let newNode = document.querySelector('.main__content-comment');
-
-    //to make a new div "look at the comment section in HTML"
-    let div = document.createElement('div');
-    div.className = 'main__content-comment-div';
-
-    let insideDiv = '<img class="main__content-comment-picture" alt ="" src=""><div class="main__content-comment-section"><div class="main__content-comment-heading"><h4 class="main__content-comment-heading-h4">%Name%</h4><span class="main__content-comment-heading-date">12/18/2019</span></div><p class="main__content-comment-message">%Message%</p></div></div>'
-    
-    let newInsideDiv = insideDiv.replace('%Name%', comment.name);
-    newInsideDiv = insideDiv.replace('%Message%', comment.message);
-    newInsideDiv = insideDiv.replace('%12/11/2019%', accesstime());
-    div.innerHTML = newInsideDiv;
-
-    newNode.insertBefore(div, newNode.lastChild);
-}
-function accesstime() {
+function newCommentDate() {
     let comment = new Date();
 
-    let commentDate = comment.getDate();
+    let commentDatee = comment.getDate();
     let commentMonth = comment.getMonth()
     let commentYear = comment.getFullYear();
 
-    return  commentMonth + '/' + commentDate + '/' + commentYear;
+    return  commentMonth + '/' + commentDatee + '/' + commentYear;
 } 
 
 
