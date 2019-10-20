@@ -662,6 +662,7 @@ body *:after {
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0 10px 0;
+  text-transform: capitalize;
 }
 
 .main__content-comments-form__input:focus {
@@ -680,6 +681,12 @@ body *:after {
 .main__content-comments-form .textArea {
   min-height: 90px;
   margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .main__content-comments-form .textArea {
+    margin-bottom: 24px;
+  }
 }
 
 .main__content-comments-form__button {
@@ -786,6 +793,14 @@ body *:after {
           align-items: center;
 }
 
+@media (min-width: 768px) {
+  .main__content-comment-heading {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
 .main__content-comment-heading-h4 {
   margin: 0;
   margin-bottom: 16px;
@@ -799,6 +814,7 @@ body *:after {
     font-size: 16px;
     line-height: 24px;
     font-family: Avenir Next-bolder;
+    margin-right: 16px;
   }
 }
 
@@ -811,6 +827,36 @@ body *:after {
 
 .main__content-comment-message {
   margin: 0;
+}
+
+.main__content-comment-button {
+  width: 25%;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+}
+
+.main__content-comment-button:focus {
+  border: 2px solid #323232;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .main__content-comment-button {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .main__content-comment-button {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__content-comment-button {
+    width: 20%;
+  }
 }
 
 /*********

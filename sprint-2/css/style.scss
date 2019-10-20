@@ -352,6 +352,7 @@ body {
           border-radius: 5px;
           padding: 10px;
           margin: 5px 0 10px 0;
+          text-transform: capitalize;
 
           &:focus {
             border: 2px solid $black-text;
@@ -367,6 +368,10 @@ body {
         .textArea {
           min-height: 90px;
           margin-bottom: 15px;
+
+          @include tablet-size {
+            margin-bottom: 24px;
+          }
         }
         &__button {
           @include button-style;
@@ -421,6 +426,10 @@ body {
         justify-content: space-between;
         align-items: center;
 
+        @include tablet-size {
+          justify-content: flex-start;
+        }
+
         &-h4 {
           margin: 0;
           margin-bottom: 16px;
@@ -428,6 +437,7 @@ body {
 
           @include tablet-size {
             @include subheader-tablet-style;
+            margin-right: 16px;
           }
         }
         &-date {
@@ -439,6 +449,27 @@ body {
       }
       &-message {
         margin: 0;
+      }
+      &-button {
+        width: 25%;
+        margin-left: auto;
+        background: transparent;
+        border: none;
+
+        &:focus {
+          border: 2px solid $black-text;
+          outline: none;
+        }
+
+        @include tablet-size {
+          width: 20%;
+        }
+        @include larger-tablet-size {
+          width: 20%;
+        }
+        @include desktop-size {
+          width: 20%;
+        }
       }
     }
   }

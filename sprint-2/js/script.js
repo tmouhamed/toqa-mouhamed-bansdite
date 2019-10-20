@@ -38,7 +38,6 @@ form.addEventListener('submit', (event) => {
 
     }
 });
-
 /***** Add a NEW node to the comments nodes */
 
 function makeCommentNode(comment) {
@@ -71,13 +70,22 @@ function makeCommentNode(comment) {
     commentMessage.className = 'main__content-comment-heading-date';
     commentMessage.textContent = comment.message;
 
+    let commentDelete = document.createElement('button');
+    commentDelete.className = 'main__content-comment-button';
+    commentDelete.setAttribute('method', 'POST');
+    commentDelete.setAttribute('type','delete');
+    
+    let deleteIcon = document.createElement('i');
+    deleteIcon.className = 'fa fa-trash';
     //assigned every child with its parent "check the html hirarechy"
     parentDiv.appendChild(image);
     parentDiv.appendChild(divSection);
     divSection.appendChild(divHeading);
     divSection.appendChild(commentMessage);
+    divSection.appendChild(commentDelete);
     divHeading.appendChild(commentName);
     divHeading.appendChild(commentDate);
+    commentDelete.appendChild(deleteIcon);
 
     return parentDiv;
 }
@@ -100,6 +108,18 @@ function newCommentDate() {
     let commentYear = comment.getFullYear();
 
     return commentMonth + '/' + commentDatee + '/' + commentYear;
+}
+
+/**** to DELETE the parent of the button after clicking ****/
+let btn = document.getElementsByClassName('main__content-comment-button')
+for (let i = 0; i < btn.length; i++) {
+
+    //get the element reference from the event object
+    btn[i].addEventListener('click', function(e) {
+
+    //button has two div parents and we need the grandparent :-)
+    e.currentTarget.parentNode.parentNode.remove();
+ });
 }
 
 
