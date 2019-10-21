@@ -40,12 +40,19 @@ function addComment(userName, userMessage) {
     if (!userName) {
         return 'Please provide a name!';
     }
-    comments.push({
+    comments.unshift({
         name: userName,
         message: userMessage || []
     });
 }
+
 function displayComments() {
+    //to remove all the comments list everytime we display
+    let deleteOldComment = document.getElementById('main__content-comment')
+    let count = deleteOldComment.childElementCount;
+    for (let i = 0; i < count; i++) {
+        deleteOldComment.removeChild(deleteOldComment.lastChild);
+    }
     for (let i = 0; i < comments.length; i++) {
         let commentText = {
             name: comments[i].name,
@@ -54,12 +61,14 @@ function displayComments() {
 
         let articleClass = document.querySelector('.main__content-comment');
         let commentNode = makeCommentNode(commentText);
-        articleClass.prepend(commentNode);
-        generateIds();
+        articleClass.append(commentNode);
     }
+    generateIds();
+    registerDeleteCallback();
 }
+
 function generateIds() {
-    let commentSection = document.getElementById('hello').childNodes;
+    let commentSection = document.getElementById('main__content-comment').childNodes;
     for (let i = 0, j = 0; i < commentSection.length; i++) {
         if (commentSection[i].nodeName != 'DIV') {
             continue;
@@ -68,9 +77,8 @@ function generateIds() {
         commentSection[i].id = ('comment' + j);
     }
 }
-displayComments(comments);
-/***** Add a NEW node to the comments nodes */
 
+/***** Add a NEW node to the comments nodes */
 function makeCommentNode(comment) {
     // to select the comment article in the DOM
 
@@ -132,14 +140,22 @@ function newCommentDate() {
     return commentMonth + '/' + commentDatee + '/' + commentYear;
 }
 
-/**** to DELETE the parent of the button after clicking ****/
-let btn = document.getElementsByClassName('main__content-comment-button')
-for (let i = 0; i < btn.length; i++) {
+function registerDeleteCallback() {
+        /**** to DELETE the parent of the button after clicking ****/
+    let btn = document.getElementsByClassName('main__content-comment-button')
+    for (let i = 0; i < btn.length; i++) {
 
-    //get the element reference from the event object
-    btn[i].addEventListener('click', function (e) {
-
-        //button has two div parents and we need the grandparent :-)
-        e.currentTarget.parentNode.parentNode.remove();
-    });
+        //get the element reference from the event object
+        btn[i].addEventListener('click', function (e) {
+            let test = e.currentTarget.parentNode.parentNode.id;
+            let index = test[test.length - 1] - '1';
+            comments.splice(index, 1);
+            //button has two div parents and we need the grandparent :-)
+            e.currentTarget.parentNode.parentNode.remove();
+            displayComments();
+        });
+    }
 }
+
+displayComments();
+registerDeleteCallback();
