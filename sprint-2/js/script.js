@@ -147,9 +147,12 @@ function registerDeleteCallback() {
 
         //get the element reference from the event object
         btn[i].addEventListener('click', function (e) {
-            let test = e.currentTarget.parentNode.parentNode.id;
-            let index = test[test.length - 1] - '1';
+            let parentId = e.currentTarget.parentNode.parentNode.id;
+            let index = parentId[parentId.length - 1] - '1';
+
+            console.log(comments);
             comments.splice(index, 1);
+            console.log(comments);
             //button has two div parents and we need the grandparent :-)
             e.currentTarget.parentNode.parentNode.remove();
             displayComments();
@@ -158,4 +161,3 @@ function registerDeleteCallback() {
 }
 
 displayComments();
-registerDeleteCallback();
