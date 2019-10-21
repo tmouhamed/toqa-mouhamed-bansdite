@@ -16,9 +16,7 @@ let comments = [
     },
 ];
 
-
 const form = document.querySelector('.main__content-comments-form');
-
 form.addEventListener('submit', (event) => {
     //to prevent the page from reloading
     event.preventDefault();
@@ -27,17 +25,50 @@ form.addEventListener('submit', (event) => {
         commentName: form.name.value,
         commentMessage: form.comment.value
     }
-    let newComment = [];
-
     if (commentObject.commentName !== '' && commentObject.commentMessage !== "") {
-        newComment.unshift(commentObject);
+        addComment(commentObject.commentName, commentObject.commentMessage);
 
-        displayComment(newComment);
+        displayComments();
         event.target.name.value = '';
         event.target.comment.value = '';
 
     }
 });
+
+//to add a new comment to my array
+function addComment(userName, userMessage) {
+    if (!userName) {
+        return 'Please provide a name!';
+    }
+    comments.push({
+        name: userName,
+        message: userMessage || []
+    });
+}
+function displayComments() {
+    for (let i = 0; i < comments.length; i++) {
+        let commentText = {
+            name: comments[i].name,
+            message: comments[i].message
+        }
+
+        let articleClass = document.querySelector('.main__content-comment');
+        let commentNode = makeCommentNode(commentText);
+        articleClass.prepend(commentNode);
+        generateIds();
+    }
+}
+function generateIds() {
+    let commentSection = document.getElementById('hello').childNodes;
+    for (let i = 0, j = 0; i < commentSection.length; i++) {
+        if (commentSection[i].nodeName != 'DIV') {
+            continue;
+        }
+        j++;
+        commentSection[i].id = ('comment' + j);
+    }
+}
+displayComments(comments);
 /***** Add a NEW node to the comments nodes */
 
 function makeCommentNode(comment) {
@@ -46,6 +77,7 @@ function makeCommentNode(comment) {
     // add the inner html for the node
     let parentDiv = document.createElement('div');
     parentDiv.className = 'main__content-comment-div';
+    parentDiv.id = '';
 
     let image = document.createElement('img');
     image.className = 'main__content-comment-picture';
@@ -73,8 +105,8 @@ function makeCommentNode(comment) {
     let commentDelete = document.createElement('button');
     commentDelete.className = 'main__content-comment-button';
     commentDelete.setAttribute('method', 'POST');
-    commentDelete.setAttribute('type','delete');
-    
+    commentDelete.setAttribute('type', 'delete');
+
     let deleteIcon = document.createElement('i');
     deleteIcon.className = 'fa fa-trash';
     //assigned every child with its parent "check the html hirarechy"
@@ -89,17 +121,7 @@ function makeCommentNode(comment) {
 
     return parentDiv;
 }
-function displayComment(commentArray) {
-    let commentText = {
-        name: commentArray[0].commentName,
-        message: commentArray[0].commentMessage
-    }
 
-    let articleClass = document.querySelector('.main__content-comment');
-    let commentNode = makeCommentNode(commentText)
-    articleClass.prepend(commentNode);
-
-}
 function newCommentDate() {
     let comment = new Date();
 
@@ -115,14 +137,9 @@ let btn = document.getElementsByClassName('main__content-comment-button')
 for (let i = 0; i < btn.length; i++) {
 
     //get the element reference from the event object
-    btn[i].addEventListener('click', function(e) {
+    btn[i].addEventListener('click', function (e) {
 
-    //button has two div parents and we need the grandparent :-)
-    e.currentTarget.parentNode.parentNode.remove();
- });
+        //button has two div parents and we need the grandparent :-)
+        e.currentTarget.parentNode.parentNode.remove();
+    });
 }
-
-
-
-
-
