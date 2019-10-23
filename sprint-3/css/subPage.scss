@@ -1,0 +1,373 @@
+@import "./mixins.scss";
+
+/****** to reduce the repetition of the same hex color ******/
+$white-text: #ffffff;
+$black-text: #323232;
+$border-color: #e1e1e1;
+
+html,
+body {
+  @include pargraph-mobile-style;
+
+  @include tablet-size {
+    @include pargraph-tablet-style;
+  }
+  box-sizing: border-box;
+  margin: 0;
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
+
+/*********
+
+  HEADER SECTION 
+
+********/
+.header {
+  /****** general mixin for flex-column-display ******/
+  @include flex-display-column;
+  align-items: center;
+  background-color: $black-text;
+  color: $white-text;
+  @include tablet-size {
+    /* to make the header in horizontal */
+    @include flex-display-row;
+    padding: $tablet-margin;
+  }
+  @include desktop-size {
+    padding: $desktop-margin;
+  }
+  &__logo {
+    padding: 16px;
+    @include tablet-size {
+      padding: 0;
+    }
+  }
+  &__nav {
+    width: 100%;
+    @include tablet-size {
+      width: auto;
+    }
+  }
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  &__nav-list-item {
+    width: 50%;
+    padding: $mobile-margin;
+    padding-bottom: 10px;
+
+    &-link{
+      text-decoration: none;
+      color: $white-text;
+    }
+    @include tablet-size {
+      width: 100%;
+      margin: 0 30px;
+      padding: 30px 5px;
+    }
+    @include desktop-size {
+      margin: 0;
+      margin-left: 56px;
+    }
+  }
+  &__currentPage {
+    border-bottom: 4px solid $white-text;
+  }
+  &__nav-list-item:hover {
+    opacity: 0.7;
+  }
+}
+
+/*********
+
+MAIN-CONTAINER SECTION 
+
+********/
+.main {
+  &__hero {
+    /****** general mixin for flex-column-display ******/
+    @include flex-display-column;
+    height: auto;
+    color: $white-text;
+    padding: $mobile-margin;
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url(../assets/Images/hero-photo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include tablet-size {
+      min-height: 670px;
+      padding: $tablet-margin;
+    }
+    @include desktop-size {
+      padding: $desktop-margin;
+      @include flex-display-row;
+      align-items: center;
+    }
+  }
+  &__hero-div {
+    width: 100%;
+    margin: 64px 0;
+    //change the margin for the tablet & desktop screen size
+    @include tablet-size {
+      width: 80%;
+      margin: 96px 0 40px 0;
+    }
+    @include desktop-size {
+      margin: 160px 0;
+    }
+    &-subtitle {
+      @include subheader-mobile-style;
+      margin: 0;
+      margin-bottom: 10px;
+
+      @include tablet-size {
+        @include header2-tablet-style;
+        font-family: $demibold-font;
+        margin-bottom: 24px;
+      }
+    }
+    &-title {
+      @include header-mobile-style;
+      margin: 0;
+      @include tablet-size {
+        @include hero-tablet-style;
+      }
+    }
+  }
+  &__iframe {
+    width: 100%;
+    border-radius: 5px;
+    @include tablet-size {
+      width: 60%;
+      max-height: 146px;
+    }
+    @include desktop-size {
+      margin-left: 64px;
+    }
+  }
+  &__content {
+    @include flex-display-column;
+    @include pargraph-mobile-style;
+    margin: $mobile-margin;
+    color: $black-text;
+
+    @include tablet-size {
+      margin: $tablet-margin;
+    }
+    @include larger-tablet-size {
+      margin: 0 10%;
+      @include flex-display-row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    @include desktop-size {
+      margin: $desktop-margin;
+      @include flex-display-row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    @include larger-desktop-size {
+      width: 55%;
+    }
+    &-title {
+      @include header-mobile-style;
+      margin: 32px 0 40px 0;
+
+      @include tablet-size {
+        @include header-tablet-style;
+        margin: 32px 0;
+      }
+    }
+    &-section {
+      //make the tickets section 70% of the width of the screen only *** DESKTOP SCREEN ***
+      @include larger-tablet-size {
+        width: 75%;
+      }
+      @include desktop-size {
+        width: 75%;
+      }
+    }
+  }
+  &__content-cards {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 16px;
+
+    @include tablet-size {
+      /****** remove the margin bottom for the tablet & desktop screens ******/
+      margin-bottom: 40px;
+      @include flex-display-row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &-div {
+      @include tablet-size {
+        min-width: 15%;
+      }
+    }
+    &-title {
+      margin: 0;
+      color: #afafaf;
+      @include subheader-mobile-style;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+        margin-bottom: 40px;
+      }
+    }
+    /**** A special class to hide the table heading in the tablet size ****/
+    .hidden-title {
+      @include tablet-size {
+        display: none;
+      }
+    }
+    &-text {
+      @include subheader-mobile-style;
+      margin: 16px 0 24px 0;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+        margin: 16px 0;
+      }
+    }
+    &-button {
+      @include button-style;
+      margin: 19px 0 16px 0; //the element before has a 13 bottom margin so 19+13 = 32px
+
+      @include tablet-size {
+        width: 20%;
+        max-height: 48px
+      }
+
+    }
+  }
+}
+
+/*********
+
+  FOOTER SECTION 
+
+********/
+.footer {
+  @include pargraph-mobile-style;
+  background-color: $black-text;
+  color: $white-text;
+  padding: $mobile-margin;
+
+  @include tablet-size {
+    padding: $tablet-margin;
+  }
+  @include desktop-size {
+    padding: $desktop-margin;
+  }
+  /****** social media icons ******/
+  &__contact {
+    @include tablet-size {
+      justify-content: space-between;
+      @include flex-display-row;
+    }
+  }
+  &__contact-div {
+    @include tablet-size {
+      @include flex-display-row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__contact-title {
+    @include header-mobile-style;
+    padding-top: 35px;
+    margin: 0;
+    @include tablet-size {
+      @include header-tablet-style;
+      padding: 0;
+      padding-right: 30px;
+    }
+  }
+  &__contact-icon-list {
+    @include tablet-size {
+      padding: 0;
+    }
+  }
+  &__contact-icon {
+    margin: 15px;
+    margin-left: 5px;
+    @include tablet-size {
+      margin: 0;
+      margin-left: 32px;
+    }
+  }
+  &__logo {
+    @include tablet-size {
+      display: inline;
+      padding: 0 25px;
+      margin: 48px 0;
+    }
+    @include desktop-size {
+      padding: 0;
+      padding-right: 20px;
+    }
+  }
+  /****** contacts information ******/
+
+  &__info {
+    @include tablet-size {
+      justify-content: flex-start;
+      @include flex-display-row;
+    }
+    @include desktop-size {
+      justify-content: flex-start;
+    }
+  }
+  &__info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    @include pargraph-mobile-style;
+    @include tablet-size {
+      margin: 0;
+      padding: 0;
+      width: 35%;
+    }
+    @include desktop-size {
+      width: 25%;
+    }
+  }
+  /*** to add margin after every two lines ***/
+  &__list-item:nth-child(1),
+  &__list-item:nth-child(2) {
+    @include subheader-mobile-style;
+  }
+  &__list-item:nth-child(2),
+  &__list-item:nth-child(4) {
+    margin-bottom: 24px;
+  }
+  &__list-item:last-child {
+    /****** mailto email link ******/
+    color: $white-text;
+    text-decoration: underline;
+
+    & :hover {
+      color: #0095ff;
+    }
+  }
+  /*** to fill the entire section with black background ***/
+  &__copy-rights {
+    padding-bottom: 20px;
+    width: 65%;
+    @include tablet-size {
+      margin: 0;
+      margin-top: 40px;
+    }
+  }
+}

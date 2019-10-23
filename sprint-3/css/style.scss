@@ -1,0 +1,595 @@
+@import "./mixins.scss";
+
+/****** to reduce the repetition of the same hex color ******/
+$white-text: #ffffff;
+$black-text: #323232;
+$border-color: #e1e1e1;
+
+html,
+body {
+  @include pargraph-mobile-style;
+
+  @include tablet-size {
+    @include pargraph-tablet-style;
+  }
+  box-sizing: border-box;
+  margin: 0;
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
+
+/*********
+
+  HEADER SECTION 
+
+********/
+.header {
+  /****** general mixin for flex-column-display ******/
+  @include flex-display-column;
+  align-items: center;
+  background-color: $black-text;
+  color: $white-text;
+  @include tablet-size {
+    /* to make the header in horizontal */
+    @include flex-display-row;
+    padding: $tablet-margin;
+  }
+  @include desktop-size {
+    padding: $desktop-margin;
+  }
+  &__logo {
+    padding: 16px;
+    @include tablet-size {
+      padding: 0;
+    }
+  }
+  &__nav {
+    width: 100%;
+    @include tablet-size {
+      width: auto;
+    }
+  }
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  &__nav-list-item {
+    width: 50%;
+    padding: $mobile-margin;
+    padding-bottom: 10px;
+
+    &-link{
+      text-decoration: none;
+      color: $white-text;
+    }
+    @include tablet-size {
+      width: 100%;
+      margin: 0 30px;
+      padding: 30px 5px;
+    }
+    @include desktop-size {
+      margin: 0;
+      margin-left: 56px;
+    }
+  }
+  //for the underline for the selected page
+  &__currentPage {
+    border-bottom: 4px solid $white-text;
+  }
+  &__nav-list-item:hover {
+    opacity: 0.7;
+  }
+}
+
+/*********
+
+  MAIN-CONTAINER SECTION 
+
+********/
+.main {
+  &__hero {
+    /****** general mixin for flex-column-display ******/
+    @include flex-display-row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50vh;
+    color: $white-text;
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url(../assets/Images/hero-photo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include tablet-size {
+      min-height: 400px;
+    }
+    @include desktop-size {
+      min-height: 670px;
+    }
+  }
+  &__hero-title {
+    @include header-mobile-style;
+    width: 70%;
+    margin: $mobile-margin;
+    @include tablet-size {
+      @include hero-tablet-style;
+      margin: $tablet-margin;
+    }
+    @include desktop-size {
+      margin: $desktop-margin;
+      width: 35%;
+    }
+  }
+  &__content {
+    @include flex-display-column;
+    @include pargraph-mobile-style;
+    margin: $mobile-margin;
+    color: $black-text;
+
+    @include tablet-size {
+      margin: $tablet-margin;
+    }
+
+    @include desktop-size {
+      margin: $desktop-margin;
+    }
+    @include larger-desktop-size {
+      width: 55%;
+    }
+
+    &-first-title {
+      @include header-mobile-style;
+      margin-top: 32px;
+      padding: 0;
+      @include tablet-size {
+        @include header-tablet-style;
+        margin-top: 45px;
+        padding: 0;
+      }
+      @include larger-tablet-size {
+        margin: 0 10%;
+        margin-top: 45px;
+      }
+      @include desktop-size {
+        margin-top: 48px;
+      }
+    }
+    &-image {
+      @include standard-image-size; /***** look at the mokeup images file ***/
+      margin: 24px 0;
+      max-width: 288px;
+      @include tablet-size {
+        margin: 32px 0;
+        max-width: 720px;
+      }
+      @include desktop-size {
+        max-width: 900px;
+        margin: 48px 0;
+      }
+    }
+    &-article {
+      @include flex-display-column;
+      margin-bottom: 40px;
+      @include tablet-size {
+        justify-content: center;
+        align-items: center;
+      }
+      @include larger-tablet-size {
+        margin: 0 23%;
+      }
+      @include desktop-size {
+        margin-bottom: 48px;
+        padding: 0 95px;
+      }
+    }
+    &-article-qoute {
+      margin-bottom: 32px;
+      @include subheader-mobile-style;
+      @include tablet-size {
+        @include header2-tablet-style;
+        margin-bottom: 40px;
+      }
+    }
+    &-article-span {
+      margin: 32px 0 40px 0;
+      @include subheader-mobile-style;
+      @include tablet-size {
+        @include subheader-tablet-style;
+        margin: 0;
+        margin-top: 40px;
+      }
+    }
+    &-box {
+      @include pargraph-mobile-style;
+      @include tablet-size {
+        @include pargraph-tablet-style;
+      }
+      @include desktop-size {
+        margin: 0;
+      }
+    }
+    &-box-title {
+      @include subheader-mobile-style;
+      margin: 0 0 24px 0;
+      @include tablet-size {
+        @include header2-tablet-style;
+        margin-bottom: 15px;
+      }
+      @include desktop-size {
+        margin: 56px 0 32px 0;
+      }
+    }
+    &-box-text {
+      @include tablet-size {
+        @include flex-display-row;
+      }
+    }
+    &-text {
+      @include tablet-size {
+        width: 50%;
+      }
+      @include desktop-size {
+        width: 55%;
+        margin: 0;
+      }
+    }
+    &-text:first-child {
+      @include tablet-size {
+        margin-right: 24px;
+      }
+      @include desktop-size {
+        margin-right: 40px;
+      }
+    }
+
+    /**** GALLERY SECTION STYLEING  ****/
+
+    &-gallery {
+      background-color: #fafafa;
+
+      @include larger-tablet-size {
+        margin: 0 20%;
+      }
+
+      &-title {
+        @include header-mobile-style;
+        margin: 0;
+        padding: 0;
+        margin: 32px 0 24px 0;
+        @include tablet-size {
+          @include header-tablet-style;
+          margin: 32px 0 0 12px;
+        }
+        @include desktop-size {
+          margin: 48px 0 64px 0; /****** 2*24px= 48px(desktop-margin)margin for both of them ******/
+          padding-left: 15px;
+        }
+      }
+      &-list {
+        margin: 24px 0 40px 0;
+        @include tablet-size {
+          @include flex-display-row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        @include desktop-size {
+          margin: 64px 0 40px 0;
+        }
+      }
+      &-image {
+        @include standard-image-size;
+        margin-bottom: 16px;
+
+        filter: grayscale(100);
+        &:hover {
+          filter: grayscale(0);
+        }
+        @include tablet-size {
+          max-width: 224px;
+        }
+        @include desktop-size {
+          max-width: 344px;
+        }
+      }
+    }
+
+    /**** COMMENT FORM STYLEING  ****/
+
+    &-comments {
+      margin: 0;
+
+      &-heading {
+        margin: 32px 0 40px 0;
+        @include header-mobile-style;
+
+        @include tablet-size {
+          margin: 48px 0 56px 0;
+          @include header-tablet-style;
+        }
+        @include larger-tablet-size {
+          margin: 48px 10% 56px 10%;;
+        }
+      }
+      &-div {
+        border-bottom: 1px solid $border-color;
+        @include flex-display-row;
+        justify-content: space-evenly;
+
+        @include tablet-size {
+          margin: 0 26%;
+        }
+      }
+      &-picture {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+      &-form {
+        width: 100%;
+        margin: 0 0 32px 20px;
+        @include flex-display-column;
+
+        ::placeholder {
+          color: $black-text;
+        }
+        &__label {
+          color: #afafaf;
+          @include subheader-mobile-style;
+
+          @include tablet-size {
+            @include subheader-tablet-style;
+          }
+        }
+        &__input {
+          background-color: #fafafa;
+          border: 1px solid $border-color;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 5px 0 10px 0;
+          text-transform: capitalize;
+
+          &:focus {
+            border: 2px solid $black-text;
+            border-radius: 5px;
+            outline: none;
+          }
+
+          @include tablet-size {
+            margin: 8px 0 24px 0;
+            max-width: 460px;
+          }
+        }
+        .textArea {
+          min-height: 90px;
+          margin-bottom: 15px;
+
+          @include tablet-size {
+            margin-bottom: 24px;
+          }
+        }
+        &__button {
+          @include button-style;
+
+          @include tablet-size {
+            width: 25%;
+            margin-left: auto;
+            order: 2;
+          }
+          @include desktop-size {
+            width: 35%;
+          }
+        }
+      }
+    }
+
+    /**** COMMENTs SECTION STYLEING  ****/
+
+    &-comment {
+      margin: 0;
+      margin-bottom: 40px;
+
+      @include tablet-size {
+        margin: 0 26%;
+        margin-bottom: 40px;
+      }
+      &-div {
+        @include pargraph-mobile-style;
+        @include flex-display-row;
+        border-bottom: 1px solid $border-color;
+        padding: 24px 0;
+
+        @include tablet-size {
+          @include pargraph-tablet-style;
+        }
+      }
+      &-section {
+        @include flex-display-column;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 16px;
+      }
+      &-picture {
+        background-color: silver;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      &-heading {
+        @include flex-display-row;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet-size {
+          justify-content: flex-start;
+        }
+
+        &-h4 {
+          margin: 0;
+          margin-bottom: 16px;
+          @include subheader-mobile-style;
+
+          @include tablet-size {
+            @include subheader-tablet-style;
+            margin-right: 16px;
+          }
+        }
+        &-date {
+          margin: 0;
+          margin-bottom: 16px;
+          font-size: 14px;
+          color: silver;
+        }
+      }
+      &-message {
+        margin: 0;
+      }
+      &-button {
+        width: 25%;
+        margin-left: auto;
+        background: transparent;
+        border: none;
+
+        &:focus {
+          border: 2px solid $black-text;
+          outline: none;
+        }
+
+        @include tablet-size {
+          width: 20%;
+        }
+        @include larger-tablet-size {
+          width: 20%;
+        }
+        @include desktop-size {
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+/*********
+
+  FOOTER SECTION 
+
+********/
+.footer {
+  @include pargraph-mobile-style;
+  background-color: $black-text;
+  color: $white-text;
+  padding: $mobile-margin;
+
+  @include tablet-size {
+    padding: $tablet-margin;
+  }
+  @include desktop-size {
+    padding: $desktop-margin;
+  }
+  /****** social media icons ******/
+  &__contact {
+    @include tablet-size {
+      justify-content: space-between;
+      @include flex-display-row;
+    }
+  }
+  &__contact-div {
+    @include tablet-size {
+      @include flex-display-row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__contact-title {
+    @include header-mobile-style;
+    padding-top: 35px;
+    margin: 0;
+    @include tablet-size {
+      @include header-tablet-style;
+      padding: 0;
+      padding-right: 30px;
+    }
+  }
+  &__contact-icon-list {
+    @include tablet-size {
+      padding: 0;
+    }
+  }
+  &__contact-icon {
+    margin: 15px;
+    margin-left: 5px;
+    @include tablet-size {
+      margin: 0;
+      margin-left: 32px;
+    }
+  }
+  &__logo {
+    @include tablet-size {
+      display: inline;
+      padding: 0 25px;
+      margin: 48px 0;
+    }
+    @include desktop-size {
+      padding: 0;
+      padding-right: 20px;
+    }
+  }
+  /****** contacts information ******/
+
+  &__info {
+    @include tablet-size {
+      justify-content: flex-start;
+      @include flex-display-row;
+    }
+    @include desktop-size {
+      justify-content: flex-start;
+    }
+  }
+  &__info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    @include pargraph-mobile-style;
+    @include tablet-size {
+      margin: 0;
+      padding: 0;
+      width: 35%;
+    }
+    @include desktop-size {
+      width: 25%;
+    }
+  }
+  /*** to add margin after every two lines ***/
+  &__list-item:nth-child(1),
+  &__list-item:nth-child(2) {
+    @include subheader-mobile-style;
+  }
+  &__list-item:nth-child(2),
+  &__list-item:nth-child(4) {
+    margin-bottom: 24px;
+  }
+  &__list-item:last-child {
+    /****** mailto email link ******/
+    color: $white-text;
+    text-decoration: underline;
+
+    & :hover {
+      color: #0095ff;
+    }
+  }
+  /*** to fill the entire section with black background ***/
+  &__copy-rights {
+    padding-bottom: 20px;
+    width: 65%;
+    @include tablet-size {
+      margin: 0;
+      margin-top: 40px;
+    }
+  }
+}

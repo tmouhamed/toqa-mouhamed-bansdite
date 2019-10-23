@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Avenir Next-regular;
+  src: url("../assets/Global-Font/AvenirNextProLT/Linotype-AvenirNextLTPro-Regular.otf");
+}
+
+@font-face {
+  font-family: Avenir Next-bold;
+  src: url("../assets/Global-Font/AvenirNextProLT/Linotype-AvenirNextLTPro-Bold.otf");
+}
+
+@font-face {
+  font-family: Avenir Next-bolder;
+  src: url("../assets/Global-Font/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf");
+}
+/*# sourceMappingURL=mixins.css.map */
