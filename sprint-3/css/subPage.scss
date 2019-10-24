@@ -189,12 +189,12 @@ MAIN-CONTAINER SECTION
       }
     }
     &-section {
-      //make the tickets section 70% of the width of the screen only *** DESKTOP SCREEN ***
+      //make the tickets section 80% of the width of the screen only *** DESKTOP SCREEN ***
       @include larger-tablet-size {
-        width: 75%;
+        width: 80%;
       }
       @include desktop-size {
-        width: 75%;
+        width: 80%;
       }
     }
   }
@@ -223,6 +223,7 @@ MAIN-CONTAINER SECTION
       @include tablet-size {
         @include subheader-tablet-style;
         margin-bottom: 40px;
+        display: none;
       }
     }
     /**** A special class to hide the table heading in the tablet size ****/

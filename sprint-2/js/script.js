@@ -68,7 +68,7 @@ function displayComments() {
 }
 
 function generateIds() {
-    let commentSection = document.getElementById('main__content-comment').childNodes;
+    let commentSection = document.querySelector('.main__content-comment').childNodes;
     for (let i = 0, j = 0; i < commentSection.length; i++) {
         if (commentSection[i].nodeName != 'DIV') {
             continue;
@@ -141,7 +141,7 @@ function newCommentDate() {
 }
 
 function registerDeleteCallback() {
-        /**** to DELETE the parent of the button after clicking ****/
+    /**** to DELETE the parent of the button after clicking ****/
     let btn = document.getElementsByClassName('main__content-comment-button')
     for (let i = 0; i < btn.length; i++) {
 
@@ -150,9 +150,7 @@ function registerDeleteCallback() {
             let parentId = e.currentTarget.parentNode.parentNode.id;
             let index = parentId[parentId.length - 1] - '1';
 
-            console.log(comments);
             comments.splice(index, 1);
-            console.log(comments);
             //button has two div parents and we need the grandparent :-)
             e.currentTarget.parentNode.parentNode.remove();
             displayComments();

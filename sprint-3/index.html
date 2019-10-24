@@ -86,15 +86,15 @@
                 <h1 class="main__content-comments-heading">Join the Conversation</h1>
                 <div class="main__content-comments-div">
                     <img class="main__content-comments-picture" src="./assets/Images/avatar.png">
-                    <form id="commentForm" class="main__content-comments-form">
+                    <form method="POST" id="commentForm" class="main__content-comments-form">
                         <label for="name" class="main__content-comments-form__label">Name</label>
                         <input class="main__content-comments-form__input" placeholder="Your Name" id="name" type="name"
                             name="name">
 
                         <label for="comment" class="main__content-comments-form__label">Comment</label>
                         <textarea class="main__content-comments-form__input textArea" id="comment" name="comment"
-                            placeholder="Add a new comment"></textarea>
-                        <button class="main__content-comments-form__button" method="POST" type="submit">Comment</button>
+                           type="comment" placeholder="Add a new comment"></textarea>
+                        <button class="main__content-comments-form__button" type="submit">Comment</button>
                     </form>
                 </div>
             </article>
@@ -147,6 +147,7 @@
             Copyright The Bees Knees © 2018 All Rights Reserved
         </p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>
 
