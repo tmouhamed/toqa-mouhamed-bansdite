@@ -13,7 +13,7 @@ getComments = () => {
         })
         .catch((error) => {
             console.error(error)
-          });
+        });
 }
 //post the comment to the API
 addComments = (userName, userComment) => {
@@ -31,20 +31,23 @@ addComments = (userName, userComment) => {
         })
         .catch((error) => {
             console.error(error)
-          });
+        });
 }
+
 getComments()
+
 function displayComment(response) {
     let showComment = document.querySelector('.main__content-comment');
     let newDiv = makeCommentNode(response);
     showComment.appendChild(newDiv);
+    deleteFunction(newDiv);
 }
 
 function makeCommentNode(comment) {
     // add the inner html for the node
     let parentDiv = document.createElement('div');
     parentDiv.className = 'main__content-comment-div';
-    parentDiv.id = '';
+    parentDiv.id = comment.id;
 
     let image = document.createElement('img');
     image.className = 'main__content-comment-picture';
@@ -71,7 +74,8 @@ function makeCommentNode(comment) {
 
     let commentDelete = document.createElement('button');
     commentDelete.className = 'main__content-comment-button';
-    // commentDelete.setAttribute('method', 'POST');
+    commentDelete.id = 'main__content-comment-button';
+
     commentDelete.setAttribute('type', 'delete');
 
     let deleteIcon = document.createElement('i');
@@ -86,7 +90,7 @@ function makeCommentNode(comment) {
     divHeading.appendChild(commentDate);
     commentDelete.appendChild(deleteIcon);
 
-    return parentDiv;    
+    return parentDiv;
 }
 
 const form = document.querySelector('.main__content-comments-form');
@@ -111,26 +115,39 @@ function newCommentDate() {
     let comment = new Date();
 
     let commentDatee = comment.getDate();
-    let commentMonth = comment.getMonth()+1;
+    let commentMonth = comment.getMonth() + 1;
     let commentYear = comment.getFullYear();
     let commentHour = comment.getHours();
     let commentMinute = comment.getMinutes();
     let commentDay = commentMonth + '/' + commentDatee + '/' + commentYear;
-;
+    ;
     let commentTime
     if (commentHour >= 12) {
         commentTime = commentHour + ':' + commentMinute + ' PM'
     }
     return commentDay + ' ' + commentTime;
 }
-// delete comment function
-// const deleteButton = document.querySelector('.main__content-comment-button');
-// deleteButton.addEventListener('delete', (event) => {
-//     event.preventDefault();
-    
-// });
 
-// function registerDeleteCallback(comment) {
+deleteComments = (object) => {
+    removeData = axios.delete(`${url}${object}/${apiKey}`);
+    removeData.then((result) => {
+        console.log(result);
+    })
+}
 
-// }
- /**** to DELETE the parent of the button after clicking ****/
+function deleteFunction(comments) {
+    /**** to DELETE the parent of the button after clicking ****/
+    let btn = document.getElementsByClassName('main__content-comment-button')
+    for (let i = 0; i < btn.length; i++) {
+        //get the element reference from the event object
+        btn[i].addEventListener('click', function (e) {
+            //button has two div parents and we need the grandparent :-)
+            e.currentTarget.parentNode.parentNode.remove();
+
+            //to get the id of the parent button to delete from the server
+            let object = e.currentTarget.parentNode.parentNode.id;
+            deleteComments(object);
+            displayComments();
+        });
+    }
+}
