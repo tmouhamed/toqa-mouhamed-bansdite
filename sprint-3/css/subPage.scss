@@ -64,7 +64,7 @@ body {
     padding: $mobile-margin;
     padding-bottom: 10px;
 
-    &-link{
+    &-link {
       text-decoration: none;
       color: $white-text;
     }
@@ -164,7 +164,6 @@ MAIN-CONTAINER SECTION
       margin: $tablet-margin;
     }
     @include larger-tablet-size {
-      margin: 0 10%;
       @include flex-display-row;
       justify-content: space-between;
       align-items: baseline;
@@ -188,68 +187,72 @@ MAIN-CONTAINER SECTION
         margin: 32px 0;
       }
     }
-    &-section {
-      //make the tickets section 80% of the width of the screen only *** DESKTOP SCREEN ***
+    &-table {
+      width: 100%;
+      border-collapse: collapse;
+
       @include larger-tablet-size {
-        width: 80%;
+        width: 85%;
       }
       @include desktop-size {
         width: 80%;
       }
-    }
-  }
-  &__content-cards {
-    border-bottom: 1px solid $border-color;
-    margin-bottom: 16px;
 
-    @include tablet-size {
-      /****** remove the margin bottom for the tablet & desktop screens ******/
-      margin-bottom: 40px;
-      @include flex-display-row;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    &-div {
-      @include tablet-size {
-        min-width: 15%;
-      }
-    }
-    &-title {
-      margin: 0;
-      color: #afafaf;
-      @include subheader-mobile-style;
-
-      @include tablet-size {
-        @include subheader-tablet-style;
-        margin-bottom: 40px;
+      &-head {
         display: none;
-      }
-    }
-    /**** A special class to hide the table heading in the tablet size ****/
-    .hidden-title {
-      @include tablet-size {
-        display: none;
-      }
-    }
-    &-text {
-      @include subheader-mobile-style;
-      margin: 16px 0 24px 0;
+        @include tablet-size {
+          display: table-header-group;
+        }
 
-      @include tablet-size {
-        @include subheader-tablet-style;
-        margin: 16px 0;
-      }
-    }
-    &-button {
-      @include button-style;
-      margin: 19px 0 16px 0; //the element before has a 13 bottom margin so 19+13 = 32px
-
-      @include tablet-size {
-        width: 20%;
-        max-height: 48px
+        &-row {
+          text-align: left;
+        }
       }
 
+      &-body {
+        &__heading {
+          @include flex-display-column;
+          border-bottom: 1px solid $border-color;
+
+          @include tablet-size {
+            display: table-row;
+          }
+        }
+        &__data {
+          padding: 0;
+          border-bottom: none;
+          @include tablet-size {
+          }
+          &::before {
+            @include subheader-mobile-style;
+            content: attr(data-label);
+            padding: 24px 0 16px 0;
+            color: #afafaf;
+            display: block;
+
+            @include tablet-size {
+              @include subheader-tablet-style;
+              display: none;
+            }
+          }
+          &-button {
+            @include button-style;
+            margin-bottom:16px; 
+            
+            @include tablet-size {
+              margin: 32px 0 16px 0;
+              min-height: 48px;
+              padding: 0 20px;
+            }
+          }
+        }
+        &__date {
+          @include subheader-tablet-style;
+          @include tablet-size {
+            padding-right: 15px;
+          }
+        }
+      }
     }
   }
 }

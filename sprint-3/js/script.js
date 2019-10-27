@@ -1,7 +1,7 @@
 const apiKey = '?api_key=0cLaQ2bZ3V9DA35aHiyyZPUOHeA0C5uCAW9eMKEI';
 const url = 'http://project-1-api.herokuapp.com/comments/';
 
-//post the comment to the API
+//get the comment from the API
 getComments = () => {
     axios.get(url + apiKey)
         .then(response => {
@@ -11,7 +11,11 @@ getComments = () => {
                 displayComment(Element)
             })
         })
+        .catch((error) => {
+            console.error(error)
+          });
 }
+//post the comment to the API
 addComments = (userName, userComment) => {
     let commentdata = {
         "name": userName,
@@ -25,6 +29,9 @@ addComments = (userName, userComment) => {
         .then(data => {
             console.log('its added')
         })
+        .catch((error) => {
+            console.error(error)
+          });
 }
 getComments()
 function displayComment(response) {
@@ -56,7 +63,7 @@ function makeCommentNode(comment) {
 
     let commentDate = document.createElement('span');
     commentDate.className = 'main__content-comment-heading-date';
-    // commentDate.textContent = newCommentDate();
+    commentDate.textContent = newCommentDate();
 
     let commentMessage = document.createElement('p');
     commentMessage.className = 'main__content-comment-heading-date';
@@ -64,7 +71,7 @@ function makeCommentNode(comment) {
 
     let commentDelete = document.createElement('button');
     commentDelete.className = 'main__content-comment-button';
-    commentDelete.setAttribute('method', 'POST');
+    // commentDelete.setAttribute('method', 'POST');
     commentDelete.setAttribute('type', 'delete');
 
     let deleteIcon = document.createElement('i');
@@ -79,7 +86,7 @@ function makeCommentNode(comment) {
     divHeading.appendChild(commentDate);
     commentDelete.appendChild(deleteIcon);
 
-    return parentDiv;
+    return parentDiv;    
 }
 
 const form = document.querySelector('.main__content-comments-form');
@@ -100,50 +107,30 @@ form.addEventListener('submit', (event) => {
     }
 });
 
-// let btn = document.querySelector('.main__content-comment-button')
-// console.log(btn)
-//     for (let i = 0; i < btn.length; i++) {
-//         //get the element reference from the event object
-//         event.preventDefault();
+function newCommentDate() {
+    let comment = new Date();
 
-//         let commentObject = {
-//             commentName: form.name.value,
-//             commentMessage: form.comment.value
-//         }
-//         btn[i].addEventListener('click', function (e) {
-//             console.log())
-//            registerDeleteCallback(commentObject.commentName, commentObject.commentMessage)
-//             // //button has two div parents and we need the grandparent :-)
-//             // e.currentTarget.parentNode.parentNode.remove();
-
-//         });
-//     }
-
-
-// function newCommentDate() {
-//     let comment = new Date();
-
-//     let commentDatee = comment.getDate();
-//     let commentMonth = comment.getMonth()
-//     let commentYear = comment.getFullYear();
-
-//     return commentMonth + '/' + commentDatee + '/' + commentYear;
-// }
-
-function registerDeleteCallback(userName, userComment) {
-    let commentdata = {
-        "name": userName,
-        "comment": userComment
+    let commentDatee = comment.getDate();
+    let commentMonth = comment.getMonth()+1;
+    let commentYear = comment.getFullYear();
+    let commentHour = comment.getHours();
+    let commentMinute = comment.getMinutes();
+    let commentDay = commentMonth + '/' + commentDatee + '/' + commentYear;
+;
+    let commentTime
+    if (commentHour >= 12) {
+        commentTime = commentHour + ':' + commentMinute + ' PM'
     }
-    axios.delete(
-        url + apiKey,
-        {headers: {
-          Authorization: authorizationToken
-        },
-        data:{
-          source:commentdata
-        }}
-      )
+    return commentDay + ' ' + commentTime;
 }
- /**** to DELETE the parent of the button after clicking ****/
+// delete comment function
+// const deleteButton = document.querySelector('.main__content-comment-button');
+// deleteButton.addEventListener('delete', (event) => {
+//     event.preventDefault();
     
+// });
+
+// function registerDeleteCallback(comment) {
+
+// }
+ /**** to DELETE the parent of the button after clicking ****/

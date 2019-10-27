@@ -10,32 +10,28 @@ getData = () => {
                 displayData(Element)
             })
         })
+        .catch((error) => {
+            console.error(error)
+        });
 }
 getData();
 
 function displayData(response) {
-    let eventSelector = document.querySelector('.main__content');
+    let eventSelector = document.querySelector('.main__content-table');
     let newDiv = makeEventNode(response);
     eventSelector.appendChild(newDiv);
 }
 
 function makeEventNode(event) {
     // add the inner html for the node
-    let parentDiv = document.querySelector('.main__content-section');
+    let parentDiv = document.querySelector('.main__content-table-body');
     let html;
     let newHtml;
-    if(event.id == '0'){
-        html = '<div class="main__content-cards"><div class="main__content-cards-div"><h4 class="main__content-cards-title">DATE</h4><p class="main__content-cards-text">%eventDate-%</p></div><div class="main__content-cards-div"><h4 class="main__content-cards-title">VENUE</h4><p>%placeName%</p></div><div class="main__content-cards-div"><h4 class="main__content-cards-title">LOCATION</h4><p>%locationName%</p></div><button class="main__content-cards-button">Buy tickets</button></div>'
-        newHtml = html.replace('%eventDate-%', event.date);
-        newHtml = newHtml.replace('%placeName%', event.place);
-        newHtml = newHtml.replace('%locationName%', event.location);
-    }
-    else {
-        html = '<div class="main__content-cards"><div class="main__content-cards-div"><h4 class="main__content-cards-title hidden-title">DATE</h4><p class="main__content-cards-text">%eventDate-%</p></div><div class="main__content-cards-div"><h4 class="main__content-cards-title hidden-title">VENUE</h4><p>%placeName%</p></div><div class="main__content-cards-div"><h4 class="main__content-cards-title hidden-title">LOCATION</h4><p>%locationName%</p></div><button class="main__content-cards-button">Buy tickets</button></div>'
-        newHtml = html.replace('%eventDate-%', event.date);
-        newHtml = newHtml.replace('%placeName%', event.place);
-        newHtml = newHtml.replace('%locationName%', event.location);
-    }
+    html = '<tr class="main__content-table-body__heading"><td class=" main__content-table-body__date main__content-table-body__data" data-label="DATE" >%eventDate-%</td><td class="main__content-table-body__data" data-label="VENUE">%placeName%</td><td class="main__content-table-body__data" data-label="LOCATION">%locationName%</td><td class="main__content-table-body__data"><button class="main__content-table-body__data-button">Buy tickets</button></td></tr>'
+    newHtml = html.replace('%eventDate-%', event.date);
+    newHtml = newHtml.replace('%placeName%', event.place);
+    newHtml = newHtml.replace('%locationName%', event.location);
+
     parentDiv.innerHTML += newHtml;
     return parentDiv;
 }
